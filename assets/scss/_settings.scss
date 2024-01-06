@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+//=====================================
+// カラーバリエーション
+//=====================================
+
+$color-default:   #25374B;
+$color-link:      #0099CC;
+
+$color-black:     #000;
+$color-white:     #FFF;
+$color-gray:      #CCC;
+
+$color-primary:   #25374B;
+$color-secondary: #A0C5B4;
+$color-info:      #A0C5B4;
+$color-caution:   #E0D9BC;
+$color-minor:     #f2efe2;
+$color-error:     #E49078;
+$color-workflow:  #EFEFEF;
+$color-wactive:   #000;
+$color-submit:    #FF8000;
+
+//=====================================
+// レイアウトの幅
+//=====================================
+
+$nav-width: 250px;
+$content-gap: 30px;
+$content-gap-sm: 15px;
+
+//=====================================
+// メディアタイプ
+//=====================================
+
+$media-types: (
+  default: 'print, screen and (min-width: 961px)',
+  xxs: 'only screen and (max-width: 340px)',
+  xs: 'only screen and (max-width: 480px)',
+  sm:  'only screen and (max-width: 767px)',
+  sm-md:  'only screen and (max-width: 960px)',
+  md:  'only screen and (min-width: 768px) and (max-width: 960px)',
+  md-lg:  'only screen and (min-width: 768px)',
+  lg:  'print, screen and (min-width: 961px)',
+  xl: 'print, screen and (min-width: 1367px)',
+  retina: 'screen and (-webkit-min-device-pixel-ratio: 2)',
+  print: 'print',
+  
+  sp: 'only screen and (max-width: 767px)',
+  pc: 'print, screen and (min-width: 768px)'
+);
+
+$medias: pc, sp;
+
+//=====================================
+// フォント
+//=====================================
+
+$ja_go:   'Zen Kurenaido', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+$ja_min:  '游明朝' , 'Yu Mincho' , '游明朝体' , 'YuMincho', 'HG明朝B', 'ＭＳ Ｐ明朝', 'MS PMincho', 'MS 明朝', serif;
+$en:  'Karla', 'Zen Kurenaido', '游ゴシック', sans-serif;
+
+//=====================================
+// ボーダー
+//=====================================
+
+$border-default: 1px solid #CCC;
+
+//=====================================
+// シャドウ
+//=====================================
+
+$shadow-default: 0px 2px 2px 0px rgba(0,0,0,0.35);

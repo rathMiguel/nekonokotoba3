@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@use 'settings' as *;
+
+@mixin media($media) {
+  @if not map-has-key($media-types, $media) {
+    @warn "#{$media}は登録されていないブレークポイントです。代わりにデスクトップ用のポイントを設定します";
+    $media: default;
+  }
+  @media #{map-get($media-types, $media)} {
+    @content;
+  }
+}
