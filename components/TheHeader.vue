@@ -1,25 +1,21 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const isActive = ref<boolean>(false)
-
-  const navToggle: () => boolean = () => {
-    return isActive.value = !isActive.value
-  }
-  
+  import { storeToRefs } from "pinia"
+  const navStatus = useNavStatus()
+  const { navToggle } = navStatus
+  const { isNavToggle } = storeToRefs(navStatus)
 </script>
 
 <template>
   <header id="header">
     <i class="navbar" v-on:click="navToggle">
-      <nuxtImg src="/images/cat.svg" width="20" height="23" fit="contain" />
+      <NuxtImg src="/images/cat.svg" width="20" height="23" fit="contain" />
     </i>
-    <i class="nav-layer" v-on:click="navToggle" :class="(isActive === true) ? 'is-active' : ''"></i>
-    <div class="header-fixed" :class="(isActive === true) ? 'is-active' : ''">
+    <i class="nav-layer" v-on:click="navToggle" :class="isNavToggle ? 'is-active' : ''"></i>
+    <div class="header-fixed" :class="isNavToggle ? 'is-active' : ''">
       <div class="header-logo">
-        <nuxtLink to="/">
-          <nuxtImg src="/images/logo.svg" alt="" width="150" height="62" fit="contain" />
-        </nuxtLink>
+        <NuxtLink to="/">
+          <NuxtImg src="/images/logo.svg" alt="猫のことば研究所" width="150" height="62" fit="contain" />
+        </NuxtLink>
       </div>
       <TheNav />
     </div>
@@ -44,7 +40,7 @@
   border-radius: 100%;
   cursor: pointer;
   border: 1px solid #FFF;
-  @include media(md-lg){
+  @include media(sm){
     display: none;
   }
 }
@@ -65,16 +61,17 @@
 
 .header-fixed{
   position: fixed;
-  left: 0;
   top: 0;
   z-index: 1000;
   height: 100vh;
   width: $nav-width;
   background-color: $color-primary;
   color: #FFF;
+  left: -100%;
+  padding-top: 75px;
   @include media(sm){
-    left: -100%;
-    padding-top: 75px;
+    left: 0;
+    padding-top: 0;
   }
   &.is-active{
     left: 0;
@@ -83,12 +80,12 @@
 
 .header-logo{
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   height: 200px;
   @include media(sm){
-    display: none;
+    display: flex;
   }
 }
 </style>

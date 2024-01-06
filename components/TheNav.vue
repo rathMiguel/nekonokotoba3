@@ -61,12 +61,14 @@
     &:hover{
       & > ul{
         display: block;
-        @include media(sm){
-          padding-left: 1.5em;
+        padding-left: 1.5em;
+        @include media(md){
+          padding-left: 0;
         }
         li{
-          @include media(sm){
-            border-bottom: none;
+          border-bottom: none;
+          @include media(md){
+            border-bottom: 1px solid rgba(#FFF, 30%);
           }
         }
       }
@@ -84,25 +86,23 @@
       padding: 0;
       margin: 0;
       display: none;
-      @include media(md-lg){
+      @include media(md){
         position: absolute;
         left: $nav-width;
         top: 0;
+        padding-left: 0;
       }
+
       li{
         border-bottom: 1px solid rgba(#FFF, 30%);
-
         & > ul{
           width: $nav-width;
           padding: 0;
           margin: 0;
           background-color: $color-primary;
-          
-          @include media(sm){
-            padding-left: 1.5em;
-            width: calc($nav-width - 1.5em);
-          }
-          @include media(md-lg){
+          padding-left: 1.5em;
+          width: calc($nav-width - 1.5em);
+          @include media(md){
             display: none;
             position: absolute;
             left: $nav-width;
@@ -114,9 +114,7 @@
           & > ul{
             display: block;
             li{
-              @include media(sm){
-                border-bottom: none;
-              }
+              border-bottom: none;
             }
           }
         }

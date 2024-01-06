@@ -35,22 +35,17 @@ $content-gap-sm: 15px;
 
 $media-types: (
   default: 'print, screen and (min-width: 961px)',
-  xxs: 'only screen and (max-width: 340px)',
-  xs: 'only screen and (max-width: 480px)',
-  sm:  'only screen and (max-width: 767px)',
-  sm-md:  'only screen and (max-width: 960px)',
-  md:  'only screen and (min-width: 768px) and (max-width: 960px)',
-  md-lg:  'only screen and (min-width: 768px)',
-  lg:  'print, screen and (min-width: 961px)',
-  xl: 'print, screen and (min-width: 1367px)',
+  xs: 'only screen and (min-width: 480px)',
+  sm:  'only screen and (min-width: 640px)',
+  md:  'only screen and (min-width: 768px)',
+  lg:  'print, screen and (min-width: 1024px)',
+  xl: 'print, screen and (min-width: 1280px)',
+  2xl: 'print, screen and (min-width: 1536px)',
   retina: 'screen and (-webkit-min-device-pixel-ratio: 2)',
   print: 'print',
-  
-  sp: 'only screen and (max-width: 767px)',
-  pc: 'print, screen and (min-width: 768px)'
-);
 
-$medias: pc, sp;
+) !default;
+
 
 //=====================================
 // フォント
