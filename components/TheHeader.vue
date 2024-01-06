@@ -3,8 +3,8 @@
 
   const isActive = ref<boolean>(false)
 
-  const navToggle = () => {
-    isActive.value = !isActive.value
+  const navToggle: () => boolean = () => {
+    return isActive.value = !isActive.value
   }
   
 </script>
