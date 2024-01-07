@@ -55,7 +55,9 @@
   display: none;
   z-index: 990;
   &.is-active{
-    display: block;
+    @include media(sm){
+      display: none;
+    }
   }
 }
 

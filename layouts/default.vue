@@ -9,6 +9,7 @@
   <main role="main" :class="isNavToggle ? 'is-active' : ''">
     <slot />
   </main>
+  <TheFooter class="mt-[60px]" />
 </template>
 
 <style lang="scss" scoped>
@@ -18,6 +19,7 @@
 main{
   padding: 15px;
   padding-top: 70px;
+  font-family: $ja_go;
   @include media(md){
     padding: 30px;
   }

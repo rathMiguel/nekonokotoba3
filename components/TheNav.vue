@@ -18,10 +18,10 @@
         </div>
         <ul>
           <li>
-            <NuxtLink class="link-wrap" to="/event/nov2022mimimi/">ミミミのミッションマスター2022</NuxtLink>
+            <NuxtLink class="link-wrap" to="/">ミミミのミッションマスター2022</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="link-wrap" to="/event/">過去イベント一覧</NuxtLink>
+            <NuxtLink class="link-wrap" to="/">過去イベント一覧</NuxtLink>
           </li>
         </ul>
       </li>

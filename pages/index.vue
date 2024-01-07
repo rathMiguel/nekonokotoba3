@@ -3,7 +3,12 @@
 </script>
 
 <template>
-  <div>aaaa</div>
+  <HeadGlobal
+    title="猫のことば研究所"
+    description="ラグナロクオンライン内で集めたデータやちょっと便利かもしれないツール等を公開しています。"
+    type="website"
+  />
+  <Mainimage />
 </template>
 
 <style land="scss">

@@ -27,8 +27,8 @@ export const useNavStatus = defineStore(
       })
     })
 
-    const navToggle = () => {
-      isNavToggle.value = !isNavToggle.value
+    const navToggle: () => boolean = () => {
+      return isNavToggle.value = !isNavToggle.value
     }
 
     return { isNavToggle, navToggle }
