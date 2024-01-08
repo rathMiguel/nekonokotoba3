@@ -15,7 +15,7 @@
   <section class="mainimage">
     <div class="mainimage__gallery">
       <div class="gallery-block" v-for="name in gallery">
-        <NuxtImg :src="`/images/top/${name}`" format="webp" height="300" width="300" preload decoding="async" />
+        <NuxtImg :src="`/images/top/${name}`" format="webp" fit="cover" height="300" width="300" preload decoding="async" alt="" />
       </div>
     </div>
     <div class="mainimage__logo">
@@ -52,6 +52,7 @@
     max-height: 450px;
     margin-top: -30px;
     margin-right: -30px;
+    margin-left: 0px;
   }
 
   &__gallery{
