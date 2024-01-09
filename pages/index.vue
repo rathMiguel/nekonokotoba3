@@ -1,14 +1,18 @@
-<script setup lang="ts">
-
+<script>
+  
 </script>
 
 <template>
-  <HeadGlobal
-    title="猫のことば研究所"
-    description="ラグナロクオンライン内で集めたデータやちょっと便利かもしれないツール等を公開しています。"
-    type="website"
-  />
+  <Head>
+    <Title>猫のことば研究所</Title>
+    <Meta name="description" content="ラグナロクオンライン内で集めたデータやちょっと便利かもしれないツール等を公開しています。" />
+  </Head>
   <Mainimage />
+  <NewsList />
+  <SocialDisplay />
+  <div>
+    {{ $data.results }}
+  </div>
 </template>
 
 <style land="scss">
