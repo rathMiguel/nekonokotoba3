@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: false
+  },
   app: {
     head: {
       link: [
@@ -43,7 +45,17 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image'
   ],
+  build: {
+    transpile: [
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/vue-fontawesome',
+      '@fortawesome/free-regular-svg-icons'
+    ]
+  },
   plugins: [
     '@/plugins/fontawesome.ts'
-  ]
+  ],
+  experimental: {
+    typedPages: true
+  }
 })
