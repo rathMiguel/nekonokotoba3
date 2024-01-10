@@ -1,19 +1,13 @@
 import { Client } from "@notionhq/client"
+import { type H3Event } from 'h3'
 
-const notion: Client = new Client({ auth: process.env.NOTION_TOKEN })
-const image_database_id: string = process.env.NOTION_DATABASE_ID
+export default defineEventHandler((event: H3Event) => {
+  const notion: Client = new Client({ auth: process.env.NOTION_TOKEN })
+  const databaseId: string = process.env.NOTION_DATABASE_ID
 
-let payload: any[] = []
-
-async function getPosts() {
-  const data = await notion.databases.query({
-    database_id: image_database_id,
+  const response = notion.databases.query({
+    database_id: databaseId,
   })
-  return data
-}
 
-getPosts().then((data) => {
-  payload = data.results
+  return response
 })
-
-export default defineEventHandler(() => payload)
