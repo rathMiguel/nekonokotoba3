@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  
 </script>
 
 <template>
@@ -18,9 +18,6 @@
         </div>
         <ul>
           <li>
-            <NuxtLink class="link-wrap" to="/">ミミミのミッションマスター2022</NuxtLink>
-          </li>
-          <li>
             <NuxtLink class="link-wrap" to="/">過去イベント一覧</NuxtLink>
           </li>
         </ul>
@@ -30,6 +27,14 @@
           <font-awesome-icon class="icon" :icon="['far', 'rectangle-list']" />
           <span class="link-text">DATA BASE</span>
         </div>
+        <ul>
+          <li>
+            <NuxtLink class="link-wrap" to="/data/mimimi/">ミミミのミッションマスター</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="link-wrap" to="/data/transport/">イベントホール　特殊転送先リスト</NuxtLink>
+          </li>
+        </ul>
       </li>
       <li>
         <div class="link-wrap">
