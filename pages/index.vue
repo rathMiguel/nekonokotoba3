@@ -10,9 +10,6 @@
   <Mainimage />
   <NewsList />
   <SocialDisplay />
-  <div>
-    {{ $data.results }}
-  </div>
 </template>
 
 <style land="scss">
