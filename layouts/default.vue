@@ -21,7 +21,7 @@ main{
   padding-top: 70px;
   font-family: $ja_go;
   @include media(md){
-    padding: 30px;
+    padding: 0;
   }
   
   &.is-active{

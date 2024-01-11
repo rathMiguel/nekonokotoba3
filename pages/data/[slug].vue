@@ -11,13 +11,13 @@
   </Head>
   <article class="p-4 md:p-8">
     <header>
-      <h1>{{ data?.results[0].properties.Name.title[0].plain_text }}</h1>
+      <BlockH1>{{ data?.results[0].properties.Name.title[0].plain_text }}</BlockH1>
     </header>
+    <Contents :post-id="data?.results[0].id" />
   </article>
 
-  <Contents :post-id="data?.results[0].id" />
 </template>
 
-<style land="scss">
+<style land="scss" scoped>
   
 </style>
