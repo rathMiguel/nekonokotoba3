@@ -25,7 +25,7 @@ main{
   }
   
   &.is-active{
-    padding-left: 250px;
+    padding-left: 15px;
     @include media(sm){
       padding-left: 250px;
     }

@@ -55,6 +55,9 @@ export default defineNuxtConfig({
   plugins: [
     '@/plugins/fontawesome.ts'
   ],
+  image: {
+    domains: ['prod-files-secure.s3.us-west-2.amazonaws.com']
+  },
   experimental: {
     typedPages: true
   }

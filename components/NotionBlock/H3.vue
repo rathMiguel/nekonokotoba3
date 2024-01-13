@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <h2 class="text-primary" v-if="data">{{ data.heading_2.rich_text[0].text.content }}</h2>
+  <h2 class="text-primary" v-if="data">{{ data.heading_3.rich_text[0].text.content }}</h2>
 </template>
 
 <style lang="scss" scoped>
