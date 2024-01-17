@@ -83,6 +83,7 @@ const postBlocks = (data: BlocksData) => {
     <NotionBlockH1 v-if="value.type === 'heading_1'" :data="value" />
     <NotionBlockH2 v-else-if="value.type === 'heading_2'" :data="value" />
     <NotionBlockH3 v-else-if="value.type === 'heading_3'" :data="value" />
+    <NotionBlockP v-else-if="value.type === 'paragraph'" :data="value" />
     <NotionBlockList v-else-if="value.type === 'bulleted_list_item'" :data="value" />
     <NotionBlockImage v-else-if="value.type === 'image'" :data="value" />
   </div>
