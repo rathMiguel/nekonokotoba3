@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "images": "node scripts/image.js",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -19,6 +20,7 @@
     "@nuxtjs/tailwindcss": "^6.10.3",
     "@pinia/nuxt": "^0.5.1",
     "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
     "nuxt": "^3.9.0",
     "pinia": "^2.1.7",
     "sass": "^1.69.7",
