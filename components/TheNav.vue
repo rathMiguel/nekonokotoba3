@@ -16,11 +16,6 @@
           <font-awesome-icon class="icon" :icon="['far', 'flag']" />
           <span class="link-text">EVENT DATA</span>
         </div>
-        <ul>
-          <li>
-            <NuxtLink class="link-wrap" to="/">過去イベント一覧</NuxtLink>
-          </li>
-        </ul>
       </li>
       <li>
         <div class="link-wrap">

@@ -8,7 +8,7 @@ interface BlocksData {
 }
 
 interface ListItems {
-  type?: 'bulleted_list_item'
+  type?: 'bulleted_list_item' | 'numbered_list_item'
   blocks?: Object[]
 }
 
@@ -85,6 +85,7 @@ const postBlocks = (data: BlocksData) => {
     <NotionBlockH3 v-else-if="value.type === 'heading_3'" :data="value" />
     <NotionBlockP v-else-if="value.type === 'paragraph'" :data="value" />
     <NotionBlockList v-else-if="value.type === 'bulleted_list_item'" :data="value" />
+    <NotionBlockTable v-else-if="value.type === 'table'" :data="value" />
     <NotionBlockImage v-else-if="value.type === 'image'" :data="value" />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  data: Object;
+  data: Object
 }
 
 const props = withDefaults(defineProps<Props>(), {
