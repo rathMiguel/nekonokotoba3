@@ -13,7 +13,7 @@ const posts: NewsPost[] = [
   // },
   {
     date: '2022-06-29',
-    link: '/',
+    link: '/data/transport/',
     body: 'イベントホールの特殊転送先リストを公開しました'
   },
   // {

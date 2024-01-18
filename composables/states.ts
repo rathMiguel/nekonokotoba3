@@ -11,10 +11,6 @@ export const useNavStatus = defineStore(
   "navStatus",
   () => {
     const isNavToggle = ref<boolean>(false)
-    
-    const handleResize: () => number = () => {
-      return window.innerWidth
-    }
 
     const navToggle: () => boolean = () => {
       return isNavToggle.value = !isNavToggle.value

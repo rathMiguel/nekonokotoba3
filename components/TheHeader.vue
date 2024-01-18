@@ -3,6 +3,16 @@
   const navStatus = useNavStatus()
   const { navToggle } = navStatus
   const { isNavToggle } = storeToRefs(navStatus)
+
+  const router = useRoute()
+
+  watch(
+    () => router.query,
+    () => {
+      navStatus.$patch((state) => {
+        state.isNavToggle = false
+      })
+  })
 </script>
 
 <template>
