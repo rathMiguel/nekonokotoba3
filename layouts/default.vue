@@ -20,15 +20,12 @@ main{
   padding: 15px;
   padding-top: 70px;
   font-family: $ja_go;
-  @include media(md){
+  @include media(sm){
     padding: 0;
+    padding-left: 250px;
   }
-  
   &.is-active{
     padding-left: 15px;
-    @include media(sm){
-      padding-left: 250px;
-    }
   }
 }
 </style>

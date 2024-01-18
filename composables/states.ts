@@ -11,21 +11,10 @@ export const useNavStatus = defineStore(
   "navStatus",
   () => {
     const isNavToggle = ref<boolean>(false)
-    const windowSizeRatio: number = 640
-
+    
     const handleResize: () => number = () => {
       return window.innerWidth
     }
-    
-    onMounted(() => {
-      let windowWidth: number = handleResize()
-      if (windowWidth >= windowSizeRatio) isNavToggle.value = true
-
-      window.addEventListener('resize', () => {
-        windowWidth = handleResize()
-        if (windowWidth >= windowSizeRatio) isNavToggle.value = true
-      })
-    })
 
     const navToggle: () => boolean = () => {
       return isNavToggle.value = !isNavToggle.value

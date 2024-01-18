@@ -44,12 +44,6 @@ const posts: NewsPost[] = [
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-.news{
-  @include media(sm){
-    margin-right: -30px;
-  }
-}
-
 .news-maintitle{
   font-size: 1.4em;
   margin-bottom: 10px;

@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <section class="mainimage">
+  <section class="mainimage mb-2">
     <div class="mainimage__gallery">
       <div class="gallery-block" v-for="name in gallery">
         <NuxtImg :src="`/images/top/${name}`" format="webp" fit="cover" height="300" width="300" preload decoding="async" alt="" />
@@ -39,20 +39,14 @@
 
 .mainimage{
   position: relative;
-  margin: -$content-gap;
-  margin-bottom: $content-gap;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  max-height: 187px;
+  margin-left: -15px;
+  margin-right: -15px;
   @include media(sm){
-    margin: -$content-gap-sm;
     margin-top: 0;
-    margin-bottom: $content-gap-sm;
-    max-height: 450px;
-    margin-top: -30px;
-    margin-right: -30px;
-    margin-left: 0px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   &__gallery{

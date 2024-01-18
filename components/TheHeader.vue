@@ -71,6 +71,7 @@
   color: #FFF;
   left: -100%;
   padding-top: 75px;
+  transition: left ease-in-out 0.3s;
   @include media(sm){
     left: 0;
     padding-top: 0;
