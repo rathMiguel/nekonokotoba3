@@ -21,8 +21,8 @@ main{
   padding-top: 70px;
   font-family: $ja_go;
   @include media(sm){
-    padding: 0;
-    padding-left: 250px;
+    padding: 30px;
+    padding-left: 250px + 30px;
   }
   &.is-active{
     padding-left: 15px;

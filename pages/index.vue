@@ -1,6 +1,4 @@
-<script>
-  
-</script>
+<script></script>
 
 <template>
   <Head>
@@ -12,6 +10,4 @@
   <SocialDisplay />
 </template>
 
-<style land="scss">
-
-</style>
+<style land="scss" scoped></style>
