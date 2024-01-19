@@ -47,8 +47,9 @@ const posts: NewsPost[] = [
 .news-maintitle{
   font-size: 1.4em;
   margin-bottom: 10px;
-  @include media(md){
-    padding-left: 20px;
+  padding-left: 15px;
+  @include media(sm){
+    padding-left: 30px;
   }
 }
 
@@ -59,8 +60,11 @@ const posts: NewsPost[] = [
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: -1px;
+  padding-left: 15px;
+  padding-right: 15px;
   @include media(sm){
-    padding-left: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   dt{
     color: #AAA;

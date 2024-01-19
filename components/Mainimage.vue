@@ -41,13 +41,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: -15px;
-  margin-right: -15px;
-  @include media(sm){
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
 
   &__gallery{
     display: flex;
