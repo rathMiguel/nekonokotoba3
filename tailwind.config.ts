@@ -7,9 +7,10 @@ export default {
   theme: {
     colors: {
       'primary': '#25374B',
-      'secondary': '#A0C5B4'
+      'secondary': '#A0C5B4',
+      'white': '#FFF'
     },
-    font: {
+    fontFamily: {
       'kurenaido': ['Zen Kurenaido', '游ゴシック', 'YuGothic', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ'],
       'karla': ['Karla', 'Zen Kurenaido', '游ゴシック', 'sans-serif']
     },
