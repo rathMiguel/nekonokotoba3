@@ -36,6 +36,11 @@
           <font-awesome-icon class="icon" :icon="['far', 'sun']" />
           <span class="link-text">TOOLS</span>
         </div>
+        <ul>
+          <li>
+            <NuxtLink class="link-wrap" to="/tools/seisan/">清算計算機</NuxtLink>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
