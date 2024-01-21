@@ -12,6 +12,8 @@
       case 'inc':
         return seisanStatus.items.splice(index, 0, initialAmount)
       case 'dec':
+        const confirm = window.confirm('このアイテムを削除しますか？')
+        if(!confirm) return 
         return seisanStatus.items.splice(index, 1)
     }
   }

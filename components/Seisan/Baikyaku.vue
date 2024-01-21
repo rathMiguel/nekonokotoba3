@@ -9,6 +9,8 @@
       case 'inc':
         return seisanStatus.amounts.splice(index, 0, initialAmount)
       case 'dec':
+        const confirm = window.confirm('この行を削除しますか？')
+        if(!confirm) return 
         return seisanStatus.amounts.splice(index, 1)
     }
   }
