@@ -4,11 +4,21 @@
   interface Seisan {
     member: number
     amounts: number[]
+    items: {
+      name: string
+      amount: number
+    }[]
   }
 
   const seisanState = reactive<Seisan>({
     member: 1,
-    amounts: [0]
+    amounts: [0],
+    items: [
+      {
+        name: '',
+        amount: 1
+      }
+    ]
   })
 
    provide('seisanStatus', seisanState)
@@ -23,13 +33,9 @@
     <header>
       <BlockH1>清算計算機</BlockH1>
     </header>
-    <!-- {{ seisanState }} -->
     <SeisanMember />
     <SeisanBaikyaku />
     <SeisanBaikyakuTotal />
+    <SeisanItems />
   </article>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

@@ -13,7 +13,9 @@ export default {
       'slate': {
         '100': '#EDF3F9',
         '200': '#DFE7F0',
-        '300': '#CAD5E1'
+        '300': '#CAD5E1',
+        '400': '#94a3b8',
+        '500': '#64748b'
       }
     },
     fontFamily: {

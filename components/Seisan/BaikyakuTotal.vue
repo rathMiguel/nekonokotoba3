@@ -19,22 +19,27 @@
 
 <template>
   <section>
-    <div class="mt-8 p-4 bg-slate-100 rounded-md">
-      <dl class="flex mb-2">
+    <div class="mt-8 p-4 bg-slate-100 rounded-md mb-6">
+      <dl class="flex items-center">
         <dt>合計額：</dt>
-        <dd>
-          <span class="cursor-pointer border-b-2 px-1" title="クリップボードにコピー" v-on:click="copyToClipboard(aomoutsTotal)">{{ aomoutsTotal.toLocaleString() }}</span>
+        <dd class="flex items-center">
+          <span class="border-b-2 px-1" title="クリップボードにコピー">{{ aomoutsTotal.toLocaleString() }}</span>
           <span class="ml-1">zeny</span>
+          <button title="金額をクリップボードにコピー" class="rounded-md size-11 text-base" v-on:click="copyToClipboard(aomoutsTotal)">
+            <font-awesome-icon class="icon text-primary" :icon="['far', 'copy']" />
+          </button>
         </dd>
       </dl>
-      <dl class="flex">
+      <dl class="flex items-center">
         <dt>一人あたりの受取額：</dt>
-        <dd>
-          <span class="cursor-pointer border-b-2 px-1" title="クリップボードにコピー" v-on:click="copyToClipboard(Math.floor(aomoutsTotal / seisanState.member))">
+        <dd class="flex items-center">
+          <span class="border-b-2 px-1" title="クリップボードにコピー">
             {{ (Math.floor(aomoutsTotal / seisanState.member)).toLocaleString() }}
           </span>
           <span class="ml-1">zeny</span>
-          <div class="-ml-2"><small class="ml-2 text-xs">※小数点以下は切り捨て</small></div>
+          <button title="金額をクリップボードにコピー" class="rounded-md size-11 text-base" v-on:click="copyToClipboard(Math.floor(aomoutsTotal / seisanState.member))">
+            <font-awesome-icon class="icon text-primary" :icon="['far', 'copy']" />
+          </button>
         </dd>
       </dl>
     </div>
