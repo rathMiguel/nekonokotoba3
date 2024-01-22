@@ -1,21 +1,28 @@
 <script lang="ts" setup>
   import { inject, computed } from 'vue'
 
+  interface Amount {
+    name: string
+    amount: number
+  }
+
   const seisanStatus = inject(seisanKey, seisanDefaultStatus)
 
-  const handleRowButton = (index: number, incdec: 'inc' | 'dec' = 'inc') => {
-    const initialAmount = {
+  const handleRowButton = (index: number) => {
+    const initialAmount: Amount = {
       name: '',
       amount: 1
     }
 
-    switch (incdec) {
-      case 'inc':
+    return {
+      increment(): Amount[] {
         return seisanStatus.items.splice(index, 0, initialAmount)
-      case 'dec':
+      },
+      decrement(): Amount[] | false {
         const confirm = window.confirm('このアイテムを削除しますか？')
-        if(!confirm) return 
+        if(!confirm) return false
         return seisanStatus.items.splice(index, 1)
+      }
     }
   }
 
@@ -30,12 +37,7 @@
       return Math.floor((seisanStatus.items[index].amount % seisanStatus.member))
     }
   })
-
-  const copyToClipboard = (text: string) => {
-    return navigator.clipboard.writeText(text)
-      .then(() => { console.log(`copy to Clipboard "${text}"`) })
-      .catch(e => { console.error(e) })
-  }
+  
 </script>
 
 <template>
@@ -60,10 +62,10 @@
               <div class="flex items-center">
                 <input v-model="value.amount" type="number" min="1" step="1" class="border-2 rounded-md p-2 w-[5em]">
                 <div class="whitespace-nowrap">
-                  <button title="入力枠を増やす" class="rounded-md size-11 text-xl" v-on:click="handleRowButton(index)">
+                  <button title="入力枠を増やす" class="rounded-md size-11 text-xl" v-on:click="handleRowButton(index).increment">
                     <font-awesome-icon class="icon" :icon="['fas', 'circle-plus']" />
                   </button>
-                  <button title="入力枠を減らす" class="rounded-md size-11 text-xl" v-on:click="handleRowButton(index, 'dec')" v-if="(seisanStatus.items.length - 1) > 0">
+                  <button title="入力枠を減らす" class="rounded-md size-11 text-xl" v-on:click="handleRowButton(index).decrement" v-if="(seisanStatus.items.length - 1) > 0">
                     <font-awesome-icon class="icon text-error" :icon="['fas', 'circle-minus']" />
                   </button>
                 </div>
@@ -71,15 +73,11 @@
             </td>
             <td class="cell-per-amount text-base">
               {{ itemsPerNumber(index) }}
-              <button title="個数をクリップボードにコピー" class="rounded-md size-11 text-xl -mr-4" v-on:click="copyToClipboard(String(itemsPerNumber(index)))">
-                <font-awesome-icon class="icon text-slate-400" :icon="['far', 'copy']" />
-              </button>
+              <CopyClipboard :text="String(itemsPerNumber(index))" class="-mr-3" />
             </td>
             <td class="cell-per-remainder text-base">
               {{ itemsPerRemainder(index) }}
-              <button title="個数をクリップボードにコピー" class="rounded-md size-11 text-xl -mr-4" v-on:click="copyToClipboard(String(itemsPerRemainder(index)))">
-                <font-awesome-icon class="icon text-slate-400" :icon="['far', 'copy']" />
-              </button>
+              <CopyClipboard :text="String(itemsPerRemainder(index))" class="-mr-3" />
             </td>
           </tr>
         </tbody>
