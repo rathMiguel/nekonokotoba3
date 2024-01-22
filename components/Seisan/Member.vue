@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { inject } from 'vue'
-  const seisanState = inject('seisanStatus')
+  import { type Seisan } from '~/types.d'
+
+  const seisanState = inject(seisanKey, seisanDefaultStatus)
 </script>
 
 <template>

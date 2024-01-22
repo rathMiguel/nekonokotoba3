@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { inject } from 'vue'
-  const seisanStatus = inject('seisanStatus')
+
+  const seisanStatus = inject(seisanKey, seisanDefaultStatus)
   
   const handleRowButton = (index: number, incdec: 'inc' | 'dec' = 'inc'): number[] | undefined => {
     const initialAmount = 0
@@ -27,7 +28,7 @@
       <button title="入力枠を増やす" class="rounded-md size-11 text-xl ml-2" v-on:click="handleRowButton(index)">
         <font-awesome-icon class="icon" :icon="['fas', 'circle-plus']" />
       </button>
-      <button title="入力枠を減らす" class="rounded-md size-11 text-xl" v-if="(seisanStatus.amounts.length - 1) > 0" v-on:click="handleRowButton(index, 'dec')">
+      <button title="入力枠を減らす" class="rounded-md size-11 text-xl" v-if="seisanStatus !== undefined && (seisanStatus.amounts.length - 1) > 0" v-on:click="handleRowButton(index, 'dec')">
         <font-awesome-icon class="icon text-error" :icon="['fas', 'circle-minus']" />
       </button>
     </div>

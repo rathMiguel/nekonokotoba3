@@ -1,8 +1,9 @@
 <script lang="ts" setup>
   import { inject, computed } from 'vue'
-  const seisanStatus  = inject('seisanStatus')
 
-  const handleRowButton = (index: number, incdec: 'inc' | 'dec' = 'inc'): number[] => {
+  const seisanStatus = inject(seisanKey, seisanDefaultStatus)
+
+  const handleRowButton = (index: number, incdec: 'inc' | 'dec' = 'inc') => {
     const initialAmount = {
       name: '',
       amount: 1
@@ -42,9 +43,6 @@
     <header>
       <h1 class="mb-2">option. アイテムの割り勘計算</h1>
     </header>
-    <!-- <pre>
-      {{ seisanStatus }}
-    </pre> -->
     <div class="table-wrap">
       <table class="items-table">
         <thead>

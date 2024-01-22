@@ -1,27 +1,10 @@
 <script lang="ts" setup>
   import { reactive, provide } from 'vue'
+  import { type Seisan } from '~/types.d'
 
-  interface Seisan {
-    member: number
-    amounts: number[]
-    items: {
-      name: string
-      amount: number
-    }[]
-  }
+  const seisanState = reactive<Seisan>(seisanDefaultStatus)
 
-  const seisanState = reactive<Seisan>({
-    member: 1,
-    amounts: [0],
-    items: [
-      {
-        name: '',
-        amount: 1
-      }
-    ]
-  })
-
-   provide('seisanStatus', seisanState)
+   provide(seisanKey, seisanState)
 </script>
 
 <template>
