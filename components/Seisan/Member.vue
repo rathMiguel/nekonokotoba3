@@ -3,6 +3,11 @@
 
   const seisanState = inject(seisanKey, seisanDefaultStatus)
 
+  /**
+   * 割るメンバーの人数が1未満、または空値の場合、1にする
+   * @returns PT人数を1にする
+   */
+
   watchEffect(() => {
     if(seisanState.member < 1) return seisanState.member = 1
   })
