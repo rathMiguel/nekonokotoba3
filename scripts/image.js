@@ -44,7 +44,9 @@ const createImageFile = async (imageId, imageUrl) => {
 
   // Uint8ContentsのArrayBuffer型 -> Buffer型に変換
   const buffer = Buffer.from(arrayBuffer)
-  return fs.writeFileSync(imageOptions.path + imageId + ext, buffer)
+  const filename = imageOptions.path + imageId + ext
+  fs.writeFileSync(filename, buffer)
+  return console.log(`create image \x1b[32m${filename}`)
 }
 
 /**
