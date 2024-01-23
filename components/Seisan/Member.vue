@@ -1,8 +1,11 @@
 <script lang="ts" setup>
   import { inject } from 'vue'
-  import { type Seisan } from '~/types.d'
 
   const seisanState = inject(seisanKey, seisanDefaultStatus)
+
+  watchEffect(() => {
+    if(seisanState.member < 1) return seisanState.member = 1
+  })
 </script>
 
 <template>
