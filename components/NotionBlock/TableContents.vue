@@ -48,7 +48,8 @@ const props = withDefaults(defineProps<Props>(), {
             v-if="table.has_column_header !== false && index !== 0"
           >
             <template v-for="value3 in value2" v-if="value2.length">
-              {{ value3.text.content }}<br>
+              <a :href="value3.text.link.url" target="_blank" v-if="value3.text.link">{{ value3.text.content }}</a>
+              <span v-else>{{ value3.text.content }}</span>
             </template>
           </td>
         </tr>
@@ -78,6 +79,12 @@ table{
   th, td{
     padding: 1em;
     border: 1px solid #DDD;
+    a{
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
   }
 
   thead{
