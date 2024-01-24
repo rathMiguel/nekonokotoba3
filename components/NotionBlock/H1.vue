@@ -4,13 +4,13 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  data: Object,
+  data: Object
 });
 
 </script>
 
 <template>
-  <h1 class="bg-primary mb-4 md:mb-4 rounded-xl">{{ data.heading_1.rich_text[0].text.content }}</h1>
+  <h1 class="bg-primary mb-4 md:mb-4 rounded-xl" v-if="data !== undefined">{{ data.heading_1.rich_text[0].text.content }}</h1>
 </template>
 
 <style lang="scss" scoped>
