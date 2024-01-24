@@ -7,7 +7,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   data: Object,
-});
+})
 
 </script>
 

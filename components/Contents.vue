@@ -21,7 +21,8 @@ const { data } = await useFetch(`/api/notion/post/${postId}`)
 
 /**
  * 記事ブロックデータを各ブロックに適用しやすいように加工。
- * ■主な機能
+ * 
+ * ## 主な機能
  * - 連続しているul（bulleted_list_item）のブロックを1つのグループにまとめる
  * 
  * @param data 取得した記事ブロックデータ
@@ -80,13 +81,7 @@ const postBlocks = (data: BlocksData) => {
 <template>
   <!-- <pre>{{ data }}</pre> -->
   <div v-for="value in postBlocks(data)" v-if="data" :key="value.id" class="block">
-    <NotionBlockH1 v-if="value.type === 'heading_1'" :data="value" />
-    <NotionBlockH2 v-else-if="value.type === 'heading_2'" :data="value" />
-    <NotionBlockH3 v-else-if="value.type === 'heading_3'" :data="value" />
-    <NotionBlockP v-else-if="value.type === 'paragraph'" :data="value" />
-    <NotionBlockList v-else-if="value.type === 'bulleted_list_item'" :data="value" />
-    <NotionBlockTable v-else-if="value.type === 'table'" :data="value" />
-    <NotionBlockImage v-else-if="value.type === 'image'" :data="value" />
+    <NotionBlockAppearances :data="value" />
   </div>
 </template>
 

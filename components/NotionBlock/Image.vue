@@ -5,7 +5,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   data: Object,
-});
+})
 
 const imageOptions = {
   path: '/images/notion/',
@@ -24,11 +24,16 @@ for (const value of imageOptions.ext) {
 </script>
 
 <template>
-  <div class="my-4 sm:my-8">
+  <figure class="mb-4 sm:mb-8">
     <NuxtImg v-if="data" :src="imageOptions.path + data.id + ext" width="1920" />
-  </div>
+    <figcaption v-if="data.image.caption[0].text.content !== ''" class="mt-2">
+      {{ data.image.caption[0].text.content }}
+    </figcaption>
+  </figure>
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/settings' as *;
+@use '~/assets/scss/mixins' as *;
 
 </style>

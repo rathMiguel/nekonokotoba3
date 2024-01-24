@@ -32,10 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <!-- <pre>
-    {{ data.results }}
-    {{ table }}
-  </pre> -->
   <div class="table-wrap">
     <table>
       <thead v-if="table && table.has_column_header">
