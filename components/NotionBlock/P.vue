@@ -15,7 +15,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="scss" scoped>
 p{
-  margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 </style>
