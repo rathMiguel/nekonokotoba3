@@ -51,7 +51,7 @@
   <article>
     <header class="mb-10">
       <BlockH1>GOS耐性計算</BlockH1>
-      <p><a href="https://rotool.gungho.jp/item/480045/0/" target="_blank" class="underline">ガーディアンオブソウル</a>の耐性やステータスアップができます</p>
+      <p><a href="https://rotool.gungho.jp/item/480045/0/" target="_blank" class="underline">ガーディアンオブソウル</a>の耐性やステータスアップの計算ができます</p>
     </header>
     <div class="flex [&>*]:w-full gap-5">
       <div class="p-4 mb-4 bg-slate-100">

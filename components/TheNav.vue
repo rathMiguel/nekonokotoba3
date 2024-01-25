@@ -37,9 +37,8 @@
           <span class="link-text">TOOLS</span>
         </div>
         <ul>
-          <li>
-            <NuxtLink class="link-wrap" to="/tools/seisan/">清算計算機</NuxtLink>
-          </li>
+          <li><NuxtLink class="link-wrap" to="/tools/seisan/">清算計算機</NuxtLink></li>
+          <li><NuxtLink class="link-wrap" to="/tools/gos/">GoS耐性計算機</NuxtLink></li>
         </ul>
       </li>
     </ul>
