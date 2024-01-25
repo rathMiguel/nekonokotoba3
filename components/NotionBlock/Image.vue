@@ -26,7 +26,7 @@ for (const value of imageOptions.ext) {
 <template>
   <figure class="mb-4 sm:mb-8">
     <NuxtImg v-if="data" :src="imageOptions.path + data.id + ext" width="1920" />
-    <figcaption v-if="data.image.caption[0].text.content !== ''" class="mt-2 text-slate-500 text-sm">
+    <figcaption v-if="data.image.caption.length" class="mt-2 text-slate-500 text-sm">
       {{ data.image.caption[0].text.content }}
     </figcaption>
   </figure>
