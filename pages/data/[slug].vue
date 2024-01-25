@@ -1,7 +1,12 @@
 <script lang="ts" setup>
   const route = useRoute('data-slug')
 
-  const { data } = await useFetch('/api/notion/posts', { query: { slug: route.params.slug }})
+  const { data } = await useFetch('/api/notion/posts', {
+      query: {
+        slug: route.params.slug
+      }
+    }
+  )
 </script>
 
 <template>

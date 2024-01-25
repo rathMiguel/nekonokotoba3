@@ -23,20 +23,10 @@
     }
   })
 
-  watchEffect(() => {
-    if(gosState.status.str < 1) return gosState.status.str = 1
-    if(gosState.status.agi < 1) return gosState.status.agi = 1
-    if(gosState.status.vit < 1) return gosState.status.vit = 1
-    if(gosState.status.dex < 1) return gosState.status.dex = 1
-    if(gosState.status.int < 1) return gosState.status.int = 1
-    if(gosState.status.luk < 1) return gosState.status.luk = 1
-  })
-
   const attrCalc = computed(() => {
     const attRatio = 18
 
     return (att1: number, att2: number, step: number = 7): number => {
-
       return Math.floor(( att1 + att2 ) / attRatio) * step
     }
   })
@@ -50,11 +40,11 @@
   </Head>
   <article>
     <header class="mb-10">
-      <BlockH1>GOS耐性計算</BlockH1>
+      <BlockH1>GOS耐性計算機</BlockH1>
       <p><a href="https://rotool.gungho.jp/item/480045/0/" target="_blank" class="underline">ガーディアンオブソウル</a>の耐性やステータスアップの計算ができます</p>
     </header>
     <div class="flex [&>*]:w-full gap-5">
-      <div class="p-4 mb-4 bg-slate-100">
+      <div class="p-4 mb-4 bg-slate-100 rounded-md">
         <table>
           <tbody class="[&>tr>*]:py-1">
             <tr>
