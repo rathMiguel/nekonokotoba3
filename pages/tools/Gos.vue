@@ -106,7 +106,7 @@
           <li>スキルディレイ - {{ attrCalc(gosState.status.str, gosState.status.luk, 1) }}%</li>
           <li>攻撃速度 + {{ attrCalc(gosState.status.agi, gosState.status.vit, 2) }}%</li>
           <li>MaxHP + {{ attrCalc(gosState.status.agi, gosState.status.vit, 2) }}%</li>
-          <li>Matk + {{ attrCalc(gosState.status.int, gosState.status.dex, 15) }}%</li>
+          <li>Matk + {{ attrCalc(gosState.status.int, gosState.status.dex, 15) }}</li>
           <li>詠唱時間 - {{ attrCalc(gosState.status.int, gosState.status.dex, 1) }}%</li>
         </ul>
       </section>
