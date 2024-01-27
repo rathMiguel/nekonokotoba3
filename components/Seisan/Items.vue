@@ -57,7 +57,7 @@
         </thead>
         <tbody>
           <tr v-for="(value, index) in seisanStatus.items">
-            <td><input type="text" v-model="value.name" class="border-2 rounded-md p-2 w-full" placeholder="壊れた魔法石"></td>
+            <td><input type="text" v-model="value.name" v-on:keypress.enter="handleRowButton(index).increment" class="border-2 rounded-md p-2 w-full" placeholder="壊れた魔法石"></td>
             <td>
               <div class="flex items-center">
                 <input v-model="value.amount" type="number" min="1" step="1" class="border-2 rounded-md p-2 w-[5em]">
