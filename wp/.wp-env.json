@@ -1,0 +1,24 @@
+{
+  "core": "https://ja.wordpress.org/wordpress-latest-ja.zip",
+  "phpVersion": "7.4",
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/wp-multibyte-patch.latest-stable.zip",
+    "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.latest-stable.zip",
+    "https://downloads.wordpress.org/plugin/advanced-custom-fields.latest-stable.zip"
+  ],
+  "themes": [],
+  "port": 8888,
+  "env": {
+    "tests": {
+      "port": 8889
+    }
+  },
+  "config": {
+    "WP_DEBUG": true
+  },
+  "mappings": {
+    "wp-content/themes/nekonokotoba": "./www/wp-content/themes/nekonokotoba",
+    "wp-content/uploads": "./www/wp-content/uploads",
+    "wp-content/plugins": "./www/wp-content/plugins"
+  }
+}

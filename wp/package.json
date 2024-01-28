@@ -1,0 +1,22 @@
+{
+  "name": "boilarplate-wordpress",
+  "version": "1.0.0",
+  "description": "development for wordpress website",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "dev": "browser-sync start -p http://localhost:8888/ --files www",
+    "wp-env": "wp-env"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^8.10.0",
+    "browser-sync": "^2.27.10"
+  },
+  "keywords": [
+    "Web Component"
+  ],
+  "author": "kenji Hashimoto",
+  "license": "ISC"
+}

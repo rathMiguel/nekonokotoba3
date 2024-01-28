@@ -1,0 +1,9 @@
+.sass-cache/
+node_modules/
+Thumbs.db
+.DS_Store
+.tmp
+.env
+
+www/wp-content/plugins/
+www/wp-content/uploads/
