@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false
   },
+  runtimeConfig: {
+    public: {
+      WP_BASE_URL: process.env.WP_BASE_URL
+    }
+  },
   app: {
     head: {
       link: [

@@ -1,27 +1,21 @@
 <script lang="ts" setup>
+import WPContent from '~/components/WPContent.vue';
+
+  const config = useRuntimeConfig()
   const route = useRoute('data-slug')
 
-  const { data } = await useFetch('/api/notion/posts', {
-      query: {
-        slug: route.params.slug
-      }
-    }
-  )
+  const { data } = await useFetch(`${config.public.WP_BASE_URL}pages/?slug=${route.params.slug}`)
 </script>
 
 <template>
   <Head>
-    <Title v-if="data !== null && data.results.length !== 0">{{ data.results[0].properties.Name.title[0].plain_text }} - 猫のことば研究所</Title>
-    <Meta name="description" content="" />
+    <Title>{{ data[0].title.rendered }} - 猫のことば研究所</Title>
+    <Meta name="description" :content="data[0].excerpt.rendered" />
   </Head>
-  <article v-if="data !== null && data.results.length !== 0">
+  <article>
     <header>
-      <BlockH1>{{ data?.results[0].properties.Name.title[0].plain_text }}</BlockH1>
+      <BlockH1>{{ data[0].title.rendered }}</BlockH1>
     </header>
-    <Contents :post-id="data?.results[0].id" />
+    <WPContent :data="data[0]" />
   </article>
 </template>
-
-<style land="scss" scoped>
-  
-</style>

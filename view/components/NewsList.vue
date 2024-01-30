@@ -1,39 +1,32 @@
 <script setup lang="ts">
-interface NewsPost {
-  date: string
-  link: string
-  body: string
-}
+  import { cdate } from "cdate"
 
-const posts: NewsPost[] = [
-  // {
-  //   date: '2022-07-19',
-  //   link: '/event/july2022/',
-  //   body: 'ゲフェンメロンフェスタ概要をまとめました'
-  // },
-  {
-    date: '2022-06-29',
-    link: '/data/transport/',
-    body: 'イベントホールの特殊転送先リストを公開しました'
-  },
-  // {
-  //   date: '2022-06-29',
-  //   link: '/event/june2022/',
-  //   body: 'LoveLoveWedding大作戦2022 討伐リストを公開しました'
-  // }
-]
+  const config = useRuntimeConfig()
+
+  const { data: posts } = await useFetch(`${config.public.WP_BASE_URL}posts/`)
+
+  const toDateFormat = (time: string): string => {
+    const date: cdate.CDate = cdate(time)
+    const dateFormatted: string = date.format('YYYY-MM-DD')
+
+    return dateFormatted
+  }
 </script>
 
 <template>
+  <!-- <pre>
+    {{ posts }}
+  </pre> -->
   <section class="news" id="news">
     <div class="news-header">
-      <h3 class="news-maintitle">更新情報</h3>
+      <h3 class="news-maintitle">お知らせ</h3>
     </div>
     <div class="news-main">
-      <div class="news-dl" v-for="value in posts">
-        <dt>{{ value.date }}</dt>
+      <div class="news-dl" v-for="{ date, acf, title } in posts">
+        <dt>{{ toDateFormat(date) }}</dt>
         <dd>
-          <NuxtLink :to="value.link">{{ value.body }}</NuxtLink>
+          <NuxtLink :to="acf.news_link" v-if="acf.news_link">{{ title.rendered }}</NuxtLink>
+          <span v-else>{{ title.rendered }}</span>
         </dd>
       </div>
     </div>
