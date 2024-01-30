@@ -16,5 +16,6 @@ add_action('admin_menu', 'remove_menus');
  function remove_post_support() {
   remove_post_type_support('page','comments');
   remove_post_type_support('page','trackbacks');
+  remove_post_type_support('page','editor');
 }
 add_action('init','remove_post_support');
