@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import WPContent from '~/components/WPContent.vue';
-
   const config = useRuntimeConfig()
   const route = useRoute('data-slug')
 

@@ -60,6 +60,9 @@ export default defineNuxtConfig({
   plugins: [
     '@/plugins/fontawesome.ts'
   ],
+  image: {
+    domains: ['localhost'],
+  },
   experimental: {
     typedPages: true
   }
