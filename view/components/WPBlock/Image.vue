@@ -15,8 +15,12 @@
 <template>
   <figure class="mb-8">
     <NuxtImg :src="media.media_details.sizes.full.source_url" :alt="media.alt_text" class="w-full" format="webp" :width="media.media_details.width" :height="media.media_details.height" fit="cover" />
-    <figcaption v-if="media.caption.rendered">
-      {{ media.caption.rendered }}
-    </figcaption>
+    <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered " class="mt-2"></figcaption>
   </figure>
 </template>
+
+<style lang="scss" scoped>
+  figcaption{
+    font-size: 0.86em;
+  }
+</style>

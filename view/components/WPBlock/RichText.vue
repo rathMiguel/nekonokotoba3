@@ -69,12 +69,9 @@
   }
 
   table{
-  width: 800px;
   table-layout: fixed;
   font-size: 0.86em;
-  @include media(md){
-    width: 100%;
-  }
+  width: 100%;
   th, td{
     padding: 1em;
     border: 1px solid #DDD;
