@@ -1,11 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: {
-    enabled: false
-  },
-  runtimeConfig: {
-    public: {
-      WP_BASE_URL: process.env.WP_BASE_URL
+    enabled: false,
+    timeline: {
+      enabled: true
     }
   },
   app: {
@@ -48,7 +46,8 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@zadigetvoltaire/nuxt-gtm'
   ],
   build: {
     transpile: [
@@ -65,5 +64,16 @@ export default defineNuxtConfig({
   },
   experimental: {
     typedPages: true
+  },
+  gtm: {
+    id: process.env.GTM_KEY
+  },
+  runtimeConfig: {
+    public: {
+      WP_BASE_URL: process.env.WP_BASE_URL,
+      gtm: {
+        id: process.env.GTM_KEY
+      }
+    }
   }
 })

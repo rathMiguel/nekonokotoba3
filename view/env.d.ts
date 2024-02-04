@@ -5,6 +5,9 @@ declare module 'process' {
         NOTION_TOKEN: string;
         NOTION_DATABASE_ID: string;
         WP_BASE_URL: string;
+        SHEET_ID: string;
+        GOOGLE_API_KEY: string;
+        GTM_KEY: string;
       }
     }
   }
