@@ -8,7 +8,8 @@
 <template>
   <Head>
     <Title>{{ data[0].title.rendered }} - 猫のことば研究所</Title>
-    <Meta name="description" :content="data[0].excerpt.rendered" />
+    <Meta name="description" :content="data[0].acf.description" />
+    <Meta name="keywords" :content="data[0].acf.keywords" />
   </Head>
   <article>
     <header>

@@ -30,11 +30,6 @@ export default defineNuxtConfig({
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1'
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'ラグナロクオンライン内で集めたデータやちょっと便利かもしれないツール等を公開しています。',
         }
       ],
     },
