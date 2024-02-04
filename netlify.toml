@@ -1,4 +1,5 @@
 [build]
+  base = "view/"
   publish = "dist"
   command = "npm run generate"
 
