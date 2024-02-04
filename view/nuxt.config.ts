@@ -60,7 +60,7 @@ export default defineNuxtConfig({
     '@/plugins/fontawesome.ts'
   ],
   image: {
-    domains: ['localhost'],
+    domains: [process.env.WP_BASE_URL],
   },
   experimental: {
     typedPages: true
@@ -71,6 +71,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       WP_BASE_URL: process.env.WP_BASE_URL,
+      WP_API_URL: process.env.WP_API_URL,
       gtm: {
         id: process.env.GTM_KEY
       }

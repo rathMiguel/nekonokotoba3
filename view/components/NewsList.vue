@@ -3,7 +3,7 @@
 
   const config = useRuntimeConfig()
 
-  const { data: posts } = await useFetch(`${config.public.WP_BASE_URL}posts/`)
+  const { data: posts } = await useFetch(`${config.public.WP_API_URL}posts/`)
 
   const toDateFormat = (time: string): string => {
     const date: cdate.CDate = cdate(time)

@@ -2,7 +2,7 @@
   const config = useRuntimeConfig()
   const route = useRoute('data-slug')
 
-  const { data } = await useFetch(`${config.public.WP_BASE_URL}pages/?slug=${route.params.slug}`)
+  const { data } = await useFetch(`${config.public.WP_API_URL}pages/?slug=${route.params.slug}`)
 </script>
 
 <template>
