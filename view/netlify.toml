@@ -1,0 +1,17 @@
+[build]
+  publish = "dist"
+  command = "npm run generate"
+
+[[redirects]]
+  from = "https://nekonokotoba.netlify.app"
+  to = "https://nekotobalab.com"
+  status = 301
+  force = true
+  headers = {X-From = "Netlify"}
+
+[[redirects]]
+  from = "https://nekonokotoba.netlify.app/*"
+  to = "https://nekotobalab.com/:splat"
+  status = 301
+  force = true
+  headers = {X-From = "Netlify"}
