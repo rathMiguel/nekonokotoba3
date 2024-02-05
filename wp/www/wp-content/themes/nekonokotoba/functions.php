@@ -1,5 +1,12 @@
 <?php 
 /**
+ * 設定ファイルの読み込み
+ * リポジトリからクローンして最初に設定すること
+ */
+
+ locate_template('env.php', true);
+
+/**
  * 【管理画面】投稿メニューの名前を変更
  */
 
@@ -44,3 +51,31 @@ add_action( 'admin_menu', 'Change_menulabel' );
   remove_post_type_support('page','editor');
 }
 add_action('init','remove_post_support');
+
+function acf_load_teacher_field_choices( $field ) {
+	$sheet_json = '';
+
+	$context = stream_context_create(
+		[
+			"http" => [
+				"ignore_errors" => true
+			]
+		]
+	);
+	$url = file_get_contents('https://sheets.googleapis.com/v4/spreadsheets/'.SHEET_ID.'/?key='.GOOGLE_API_KEY, false, $context);
+
+	if($url){
+		$sheet_json = json_decode($url);
+	}
+
+	$field['choices'] = array();
+	if($sheet_json){
+		foreach($sheet_json->sheets as $sheet){
+			$field['choices'][$sheet->properties->title] = $sheet->properties->title;
+		}
+	}
+
+	return $field;
+}
+
+add_filter('acf/load_field/name=sheet_title', 'acf_load_teacher_field_choices');
