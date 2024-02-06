@@ -35,6 +35,7 @@ function Change_objectlabel() {
 }
 add_action( 'init', 'Change_objectlabel' );
 add_action( 'admin_menu', 'Change_menulabel' );
+
 /**
  * 固定ページのエディタを無効化
  */
@@ -51,6 +52,10 @@ add_action( 'admin_menu', 'Change_menulabel' );
   remove_post_type_support('page','editor');
 }
 add_action('init','remove_post_support');
+
+/**
+ * ACFのデータベースフィールドにシート一覧を出力
+ */
 
 function acf_load_teacher_field_choices( $field ) {
 	$sheet_json = '';
@@ -79,3 +84,18 @@ function acf_load_teacher_field_choices( $field ) {
 }
 
 add_filter('acf/load_field/name=sheet_title', 'acf_load_teacher_field_choices');
+
+/**
+ * 柔軟コンテンツの各ブロックにタイトルを設定
+ * 「title」サブフィールドを設けるとそのフィールドに入力された内容が柔軟コンテンツフィールドのブロックに反映される
+ */
+
+function my_acf_fields_flexible_content_layout_title( $title, $field, $layout, $i ) {
+	if( $text = get_sub_field('title') ) {
+		$title = '<b>' . esc_html($text) . '</b> - ' . $title;
+	}
+
+	return $title;
+}
+
+add_filter('acf/fields/flexible_content/layout_title/name=content', 'my_acf_fields_flexible_content_layout_title', 10, 4);
