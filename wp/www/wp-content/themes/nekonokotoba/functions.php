@@ -54,6 +54,26 @@ add_action( 'admin_menu', 'Change_menulabel' );
 add_action('init','remove_post_support');
 
 /**
+ * 固定ページでカテゴリを有効化
+ */
+
+function add_category_to_page() {
+	register_taxonomy_for_object_type('category', 'page');
+}
+add_action('init','add_category_to_page');
+
+/**
+ * カテゴリアーカイブに固定ページを含める
+ */
+
+function add_page_to_category_archive($query) {
+	if ($query->is_category== true && $query->is_main_query()) {
+		$query->set('post_type', array('post','page'));
+	}
+}
+add_action('pre_get_posts','add_page_to_category_archive');
+
+/**
  * ACFのデータベースフィールドにシート一覧を出力
  */
 
