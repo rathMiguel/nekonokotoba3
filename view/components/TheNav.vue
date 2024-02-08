@@ -17,8 +17,8 @@
       </li>
       <li>
         <div class="link-wrap">
-          <font-awesome-icon class="icon" :icon="['far', 'rectangle-list']" />
-          <span class="link-text">DATA BASE</span>
+          <font-awesome-icon class="icon" :icon="['fas', 'carrot']" />
+          <span class="link-text">ITEM DATA</span>
         </div>
       </li>
       <li>
