@@ -7,6 +7,12 @@
  locate_template('env.php', true);
 
 /**
+ * アイキャッチ画像の有効化
+ */
+
+ add_theme_support('post-thumbnails');
+
+/**
  * 【管理画面】投稿メニューの名前を変更
  */
 

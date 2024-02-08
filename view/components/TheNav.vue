@@ -20,14 +20,6 @@
           <font-awesome-icon class="icon" :icon="['far', 'rectangle-list']" />
           <span class="link-text">DATA BASE</span>
         </div>
-        <ul>
-          <li>
-            <NuxtLink class="link-wrap" to="/data/mimimi/">ミミミのミッションマスター</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="link-wrap" to="/data/transport/">イベントホール　特殊転送先リスト</NuxtLink>
-          </li>
-        </ul>
       </li>
       <li>
         <div class="link-wrap">
