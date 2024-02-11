@@ -3,8 +3,8 @@
 
   interface Props {
     imgId: number,
-    height: number | 'auto' | null
-    width: number | 'auto' | null
+    height?: number | 'auto' | null
+    width?: number | 'auto' | null
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -13,7 +13,7 @@
     width: null
   })
 
-  const { data: media } = await useFetch(`${config.public.WP_API_URL}media/${props.imgId}`)
+  const { data: media } = await useFetch(`/api/wp/media/${props.imgId}`)
 </script>
 
 <template>

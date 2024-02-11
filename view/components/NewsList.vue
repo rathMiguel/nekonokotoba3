@@ -4,9 +4,6 @@
 </script>
 
 <template>
-  <!-- <pre>
-    {{ posts }}
-  </pre> -->
   <section class="news" id="news" v-if="posts.length">
     <div class="news-header">
       <h3 class="news-maintitle">お知らせ</h3>

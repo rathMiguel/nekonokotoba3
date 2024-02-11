@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-  const config = useRuntimeConfig()
-
   interface Props {
     imgId: number,
     height: number | 'auto' | null
     width: number | 'auto' | null
-    class: string[]
+    className: string[]
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -14,14 +12,14 @@
     width: null
   })
 
-  const { data: media } = await useFetch(`${config.public.WP_API_URL}media/${props.imgId}`)
+  const { data: media } = await useFetch(`/api/wp/media/${props.imgId}`)
 </script>
 
 <template>
   <NuxtImg
     :src="media.media_details.sizes.full.source_url"
     :alt="media.alt_text"
-    :class="class"
+    :class="className"
     :width="width"
     :height="height"
     fit="cover"
