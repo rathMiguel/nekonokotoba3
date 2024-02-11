@@ -12,7 +12,7 @@
 
 <template>
   <div class="table-wrap">
-    <table class="wp-table my-8">
+    <table class="wp-table mb-4">
       <thead v-if="options.table.h">
         <tr>
           <th v-for="heading in options.table.h" v-html="heading.c"></th>

@@ -1,16 +1,6 @@
 <script setup lang="ts">
-  import { cdate } from "cdate"
-
   const config = useRuntimeConfig()
-
-  const { data: posts } = await useFetch(`${config.public.WP_API_URL}posts/`)
-
-  const toDateFormat = (time: string): string => {
-    const date: cdate.CDate = cdate(time)
-    const dateFormatted: string = date.format('YYYY-MM-DD')
-
-    return dateFormatted
-  }
+  const { data: posts } = await useFetch(`/api/wp/posts/posts/`)
 </script>
 
 <template>
@@ -23,7 +13,7 @@
     </div>
     <div class="news-main">
       <div class="news-dl" v-for="{ date, acf, title } in posts">
-        <dt>{{ toDateFormat(date) }}</dt>
+        <dt>{{ formattedDate(date) }}</dt>
         <dd>
           <NuxtLink :to="acf.news_link" v-if="acf.news_link">{{ title.rendered }}</NuxtLink>
           <span v-else>{{ title.rendered }}</span>

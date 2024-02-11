@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-  const config = useRuntimeConfig()
   const route = useRoute('data-slug')
-
-  const { data } = await useFetch(`${config.public.WP_API_URL}pages/?slug=${route.params.slug}`)
+  
+  const { data } = await useFetch(`/api/wp/posts/events/${route.params.slug}`)
 </script>
 
 <template>

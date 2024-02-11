@@ -10,10 +10,10 @@
         </NuxtLink>
       </li>
       <li>
-        <div class="link-wrap">
+        <NuxtLink class="link-wrap" to="/events/">
           <font-awesome-icon class="icon" :icon="['far', 'flag']" />
           <span class="link-text">EVENT DATA</span>
-        </div>
+        </NuxtLink>
       </li>
       <li>
         <div class="link-wrap">
