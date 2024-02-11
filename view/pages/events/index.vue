@@ -23,8 +23,8 @@
         </div>
         <div class="flex-1 pl-6 sm:pl-0 sm:text-center">
           <h3 class="font-bold mt-3 text-lg line-brea">{{ title.rendered }}</h3>
-          <span class="text-slate-300 font-karla text-sm">
-            <time :datetime="formattedDate(date, '')">{{ formattedDate(date) }}</time>
+          <span class="text-slate-300 font-karla text-sm block mt-2">
+            <time :datetime="formattedDate(date, 'YYYY-MM-DD')">{{ formattedDate(date) }}</time>
           </span>
         </div>
       </NuxtLink>
