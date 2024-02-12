@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-  const config = useRuntimeConfig()
-
   interface Props {
     options: Object
   }
@@ -35,7 +33,7 @@
   width: 100%;
   overflow-x: auto;
   margin-top: 1.5em;
-  margin-bottom: 2.5em;
+  margin-bottom: 1.5em;
 }
 
 .wp-table{

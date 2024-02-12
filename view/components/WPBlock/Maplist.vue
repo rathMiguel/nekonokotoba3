@@ -1,0 +1,55 @@
+<script lang="ts" setup>
+  interface Props {
+    options: Object
+  }
+
+  const props = withDefaults(defineProps<Props>(), {
+    options: Object
+  })
+</script>
+
+<template>
+  <div class="gallery flex flex-wrap">
+    <div class="gallery-block" v-for="{ photo, map, caption } in options.maps">
+      <div class="gallery-block-main" v-if="photo">
+        <WPBlockImage :img-id="photo" img-class="aspect-[4/3] object-cover" />
+        <div class="caption">{{ caption }}</div>
+      </div>
+      <div class="gallery-block-side" v-if="map">
+        <WPBlockImage :img-id="map" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@use '~/assets/scss/settings' as *;
+@use '~/assets/scss/mixins' as *;
+
+.gallery{
+  gap: 0.5em;
+}
+
+.gallery-block{
+  position: relative;
+  margin-bottom: 0.5em;
+  width: calc(100%);
+  @include media(md){
+    width: calc(50% - 0.25em);
+  }
+}
+
+  
+.gallery-block-side{
+  width: 80px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 1px solid #FFF;
+}
+
+.caption{
+  font-size: 0.86em;
+  margin-top: 0.3em;
+}
+</style>

@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-  const config = useRuntimeConfig()
-
   interface Props {
     options: Object
   }
