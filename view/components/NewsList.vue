@@ -9,13 +9,13 @@
       <h3 class="news-maintitle">お知らせ</h3>
     </div>
     <div class="news-main">
-      <div class="news-dl" v-for="{ date, acf, title } in posts">
+      <dl class="news-dl" v-for="{ date, acf, title } in posts">
         <dt>{{ formattedDate(date) }}</dt>
         <dd>
           <NuxtLink :to="acf.news_link" v-if="acf.news_link">{{ title.rendered }}</NuxtLink>
           <span v-else>{{ title.rendered }}</span>
         </dd>
-      </div>
+      </dl>
     </div>
   </section>
 </template>

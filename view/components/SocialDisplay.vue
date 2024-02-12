@@ -3,8 +3,8 @@
 <template>
   <div class="pr-social">
     <a href="https://twitter.com/jukka_tan" target="_blank">
-      <NuxtImg src="/images/social/emo_twitter.png" quality="70" width="27" height="24" class="emo-twitter" />
-      <NuxtImg src="/images/social/chara_jukka.png" quality="70" width="48" height="80" class="character-jukka" />
+      <NuxtImg src="/images/social/emo_twitter.png" quality="70" width="27" height="24" alt="X（旧Twitter）" class="emo-twitter" />
+      <NuxtImg src="/images/social/chara_jukka.png" quality="70" width="48" height="80" alt="ゆっか" class="character-jukka" />
     </a>
   </div>
 </template>

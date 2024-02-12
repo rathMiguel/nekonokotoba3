@@ -20,7 +20,17 @@
 
 <template>
   <figure>
-    <NuxtImg :src="media.media_details.sizes.full.source_url" :alt="media.alt_text" class="w-full" :class="imgClass" :width="width ? width : media.media_details.width" :height="height ? height : media.media_details.height" fit="cover" loading="lazy" quality="70" />
+    <NuxtImg
+      :src="media.media_details.sizes.full.source_url"
+      :alt="media.alt_text"
+      class="w-full"
+      :class="imgClass"
+      :width="width ? width : media.media_details.width"
+      :height="height ? height : media.media_details.height"
+      fit="cover"
+      loading="lazy"
+      quality="70"
+      />
     <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered " class="mt-2"></figcaption>
   </figure>
 </template>

@@ -18,7 +18,7 @@
 <template>
   <header id="header">
     <i class="navbar" v-on:click="navToggle">
-      <NuxtImg src="/images/cat.svg" width="20" height="23" fit="contain" />
+      <NuxtImg src="/images/cat.svg" width="20" height="23" fit="contain" alt="メニュー" />
     </i>
     <i class="nav-layer" v-on:click="navToggle" :class="isNavToggle ? 'is-active' : ''"></i>
     <div class="header-fixed" :class="isNavToggle ? 'is-active' : ''">
