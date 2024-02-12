@@ -7,7 +7,16 @@
     posts: Object
   })  
 
-  const eyeCatchClass: string[] = ['block', 'mx-auto', 'rounded-md', 'border-white', 'border-[0.4em]', 'shadow-md', 'xs:h-auto', 'w-180']
+  const eyeCatchClass: string[] = [
+    'block',
+    'mx-auto',
+    'rounded-md',
+    'border-white',
+    'border-[0.4em]',
+    'shadow-md',
+    'xs:h-auto',
+    'w-180'
+  ]
 </script>
 
 <template>
