@@ -12,7 +12,7 @@
 
 <template>
   <aside class="memo" :class="`label-${options.label_type}`">
-    <div class="memo-main" v-html="options.body"></div>
+    <div class="memo-main" v-html="useImages(options.body)"></div>
   </aside>
 </template>
 

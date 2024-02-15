@@ -20,6 +20,7 @@
     "@nuxtjs/tailwindcss": "^6.10.3",
     "@pinia/nuxt": "^0.5.1",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "nuxt": "^3.9.0",
