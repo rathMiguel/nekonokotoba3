@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-  const config = useRuntimeConfig()
-
   interface Props {
     imgId: number,
     height?: number | 'auto' | null
@@ -21,10 +19,9 @@
 <template>
   <figure>
     <NuxtImg
-      :src="media.media_details.sizes.full.source_url"
+      :src="media.guid.rendered"
       :alt="media.alt_text"
-      class="w-full"
-      :class="imgClass"
+      :class="[imgClass]"
       :width="width ? width : media.media_details.width"
       :height="height ? height : media.media_details.height"
       fit="cover"

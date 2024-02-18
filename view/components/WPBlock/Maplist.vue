@@ -46,6 +46,12 @@
   right: 10px;
   top: 10px;
   border: 1px solid #FFF;
+  @include media(md){
+    width: 60px;
+  }
+  @include media(lg){
+    width: 80px;
+  }
 }
 
 .caption{
