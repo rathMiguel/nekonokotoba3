@@ -1,17 +1,19 @@
 <script lang="ts" setup>
   interface Props {
-    options: Object
+    options: {
+      content: string
+    } | undefined
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    options: Object,
+    options: undefined,
   })
 </script>
 
 <template>
-  <section class="mb-8 wp-content">
+  <div class="mb-8 wp-content" v-if="options">
     <div v-html="options.content"></div>
-  </section>
+  </div>
 </template>
 
 <style lang="scss">

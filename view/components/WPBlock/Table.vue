@@ -1,15 +1,24 @@
 <script lang="ts" setup>
   interface Props {
-    options: Object
+    options: {
+      table: {
+        h: {
+          c: string
+        }[]
+        b: {
+          c: string
+        }[][]
+      }
+    } | undefined
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    options: Object,
+    options: undefined,
   })
 </script>
 
 <template>
-  <div class="table-wrap">
+  <div class="table-wrap" v-if="options">
     <table class="wp-table mb-4">
       <thead v-if="options.table.h">
         <tr>

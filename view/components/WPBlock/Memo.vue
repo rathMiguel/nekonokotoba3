@@ -1,6 +1,9 @@
 <script lang="ts" setup>
   interface Props {
-    options: Object
+    options: {
+      label_type: string
+      body: string
+    } | undefined
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -9,8 +12,8 @@
 </script>
 
 <template>
-  <aside class="memo" :class="`label-${options.label_type}`">
-    <div class="memo-main" v-html="useImages(options.body)"></div>
+  <aside class="memo" :class="`label-${options?.label_type}`">
+    <div class="memo-main" v-if="options?.body" v-html="useImages(options.body)"></div>
   </aside>
 </template>
 

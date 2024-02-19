@@ -1,6 +1,9 @@
 <script lang="ts" setup>
   interface Props {
-    options: Object
+    options: {
+      column_number: number
+      gallery: number[]
+    } | undefined
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -9,7 +12,7 @@
 </script>
 
 <template>
-  <div class="gallery mb-8">
+  <div class="gallery mb-8" v-if="options">
     <div class="gallery-block" :class="`column-${options.column_number}`" v-for="imgId in options.gallery">
       <WPBlockImage :img-id="imgId" />
     </div>

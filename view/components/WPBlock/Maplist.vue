@@ -1,10 +1,16 @@
 <script lang="ts" setup>
   interface Props {
-    options: Object
+    options: {
+      maps: {
+        photo: number
+        map: number
+        caption: string
+      }[]
+    } | undefined
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    options: Object
+    options: undefined
   })
 </script>
 
