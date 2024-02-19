@@ -19,7 +19,7 @@
 <template>
   <figure>
     <NuxtImg
-      :src="media.guid.rendered"
+      :src="media.source_url"
       :alt="media.alt_text"
       :class="[imgClass]"
       :width="width ? width : media.media_details.width"

@@ -12,7 +12,7 @@
   <div class="gallery flex flex-wrap">
     <div class="gallery-block" v-if="options" v-for="{ photo, map, caption } in options.maps">
       <div class="gallery-block-main" v-if="photo">
-        <WPBlockImage :img-id="photo" :width="400" :height="300" />
+        <WPBlockImage :img-id="photo" :width="400" :height="300" img-class="w-full" />
         <div class="caption">{{ caption }}</div>
       </div>
       <div class="gallery-block-side" v-if="map">
