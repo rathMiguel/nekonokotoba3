@@ -47,7 +47,6 @@
 
 .wp-table{
   width: 800px;
-  table-layout: fixed;
   font-size: 0.86em;
   @include media(md){
     width: 100%;

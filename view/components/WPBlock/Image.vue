@@ -14,10 +14,17 @@
   })
 
   const { data: media } = await useFetch(`/api/wp/media/${props.imgId}`)
+
+  const isVisible = ref<boolean>(false)
+  const toggleModal = () => {
+    isVisible.value = !isVisible.value
+  }
+
+
 </script>
 
 <template>
-  <figure>
+  <figure v-on:click="toggleModal()">
     <NuxtImg
       :src="media.source_url"
       :alt="media.alt_text"
@@ -30,10 +37,51 @@
       />
     <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered " class="mt-2"></figcaption>
   </figure>
+  <Teleport to="body" v-if="isVisible">
+    <div class="modal" v-on:click="toggleModal()">
+      <div class="modal-wrap text-right">
+        <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
+        <NuxtImg
+          :src="media.source_url"
+          :width="media.media_details.width"
+          :height="media.media_details.height"
+          />
+      </div>
+    </div>
+  </Teleport>
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/settings' as *;
+@use '~/assets/scss/mixins' as *;
+
   figcaption{
     font-size: 0.86em;
+    font-family: $ja_go;
+  }
+
+  .modal{
+    position: fixed;
+    z-index: 1100;
+    color: #FFF;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgba($color-primary, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-wrap{
+    img{
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+    }
   }
 </style>
