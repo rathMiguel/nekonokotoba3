@@ -10,6 +10,7 @@
     <Meta name="description" :content="data[0].acf.description" />
     <Meta name="keywords" :content="data[0].acf.keywords" />
   </Head>
+  <BreadCrumb :texts="['HOME', 'イベントデータ', data[0].title.rendered]" :links="['/', '/events/']" />
   <article>
     <header>
       <BlockH1>{{ data[0].title.rendered }}</BlockH1>
