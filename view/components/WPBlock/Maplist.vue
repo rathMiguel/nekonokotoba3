@@ -17,12 +17,14 @@
 <template>
   <div class="gallery flex flex-wrap">
     <div class="gallery-block" v-if="options" v-for="{ photo, map, caption } in options.maps">
-      <div class="gallery-block-main" v-if="photo">
-        <WPBlockImage :img-id="photo" :width="400" :height="300" img-class="w-full" />
-        <div class="caption">{{ caption }}</div>
-      </div>
-      <div class="gallery-block-side" v-if="map">
-        <WPBlockImage :img-id="map" :width="80" :height="80" zoom />
+      <div class="gallery-block-wrap">
+        <div class="gallery-block-main" v-if="photo">
+          <WPBlockImage :img-id="photo" :width="400" :height="300" img-class="w-full" />
+          <div class="caption">{{ caption }}</div>
+        </div>
+        <div class="gallery-block-side" v-if="map">
+          <WPBlockImage :img-id="map" :width="80" :height="80" zoom />
+        </div>
       </div>
     </div>
   </div>
@@ -33,19 +35,27 @@
 @use '~/assets/scss/mixins' as *;
 
 .gallery{
-  gap: 0.5em;
+  margin-left: -5px;
+  margin-right: -5px;
 }
 
 .gallery-block{
-  position: relative;
   margin-bottom: 0.5em;
-  width: calc(100%);
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
   @include media(md){
-    width: calc(50% - 0.25em);
+    width: 50%;
+  }
+  @include media(xl){
+    width: 33.333%;
   }
 }
 
-  
+.gallery-block-wrap{
+  position: relative;
+}
+
 .gallery-block-side{
   width: 80px;
   position: absolute;
