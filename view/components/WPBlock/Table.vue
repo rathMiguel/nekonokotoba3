@@ -55,6 +55,9 @@
   th, td{
     padding: 1em;
     border: 1px solid #DDD;
+    @include media(md){
+      padding: 1em 1.5em;
+    }
   }
 
   thead{
