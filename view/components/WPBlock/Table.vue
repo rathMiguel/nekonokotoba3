@@ -8,6 +8,10 @@
         b: {
           c: string
         }[][]
+      },
+      options: {
+        is_fixed: boolean
+        is_th_vertical: boolean
       }
     } | undefined
   }
@@ -19,7 +23,7 @@
 
 <template>
   <div class="table-wrap" v-if="options">
-    <table class="wp-table mb-4">
+    <table class="wp-table mb-4" :class="options.options.is_fixed && 'is-fixed'">
       <thead v-if="options.table.h">
         <tr>
           <th v-for="heading in options.table.h" v-html="heading.c"></th>
@@ -83,6 +87,10 @@
     &:hover{
       text-decoration: none;
     }
+  }
+
+  &.is-fixed{
+    table-layout: fixed;
   }
 }
 </style>

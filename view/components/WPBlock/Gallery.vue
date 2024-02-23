@@ -7,7 +7,7 @@
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    options: Object,
+    options: undefined,
   })
 </script>
 
