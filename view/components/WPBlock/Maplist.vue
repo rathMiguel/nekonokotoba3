@@ -22,7 +22,7 @@
         <div class="caption">{{ caption }}</div>
       </div>
       <div class="gallery-block-side" v-if="map">
-        <WPBlockImage :img-id="map" :width="80" :height="80" />
+        <WPBlockImage :img-id="map" :width="80" :height="80" zoom />
       </div>
     </div>
   </div>
