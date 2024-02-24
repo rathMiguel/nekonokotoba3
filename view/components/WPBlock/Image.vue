@@ -39,18 +39,16 @@
       />
     <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered " class="mt-2"></figcaption>
   </figure>
-  <Teleport to="body" v-if="isVisible">
-    <div class="modal" v-on:click="toggleModal()">
-      <div class="modal-wrap text-right">
-        <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
-        <NuxtImg
-          :src="media.source_url"
-          :width="media.media_details.width"
-          :height="media.media_details.height"
-          />
-      </div>
+  <div class="modal" v-on:click="toggleModal()" v-show="isVisible">
+    <div class="modal-wrap text-right">
+      <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
+      <NuxtImg
+        :src="media.source_url"
+        :width="media.media_details.width"
+        :height="media.media_details.height"
+        />
     </div>
-  </Teleport>
+  </div>
 </template>
 
 <style lang="scss" scoped>
