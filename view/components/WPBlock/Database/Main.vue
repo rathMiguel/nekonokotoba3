@@ -35,7 +35,7 @@ const cellValue = (value: string | number | void) => {
       <tbody>
         <tr v-for="(value, index) in filteredDatabase" :class="todoChecks.has(`${options.sheet_title}_todo_${index}`) ? 'is-checked' : ''">
           <td v-if="options.is_todo" class="text-center">
-            <label>
+            <label class="todo-label">
               <input type="checkbox" v-model="todoChecks" :value="`${options.sheet_title}_todo_${index}`" class="check-todo">
               <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['fas', 'square-check']" v-if="todoChecks.has(`${options.sheet_title}_todo_${index}`)" />
               <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['far', 'square']" v-else />
@@ -109,6 +109,9 @@ const cellValue = (value: string | number | void) => {
     }
   }
 
+  .todo-label{
+    cursor: pointer;
+  }
   .check-todo{
     appearance: none;
   }
