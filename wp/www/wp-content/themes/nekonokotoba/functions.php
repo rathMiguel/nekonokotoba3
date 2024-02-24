@@ -82,7 +82,9 @@ function acf_load_teacher_field_choices( $field ) {
 	$field['choices'] = array();
 	if($sheet_json){
 		foreach($sheet_json->sheets as $sheet){
-			$field['choices'][$sheet->properties->title] = $sheet->properties->title;
+			if($sheet->properties->title !== '運用ルール' ){
+				$field['choices'][$sheet->properties->title] = $sheet->properties->title;
+			}
 		}
 	}
 
