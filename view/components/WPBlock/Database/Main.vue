@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { inject, ref } from 'vue'
+import { inject, ref, onMounted } from 'vue'
 
 const options = inject('options')
 const database = inject('database')
@@ -17,9 +17,20 @@ const getTableHeadings = (text: string) => {
 
 const todoChecks = ref(new Set())
 
+onMounted(() => {
+  const savedItems = localStorage.getItem(`todo_${options.sheet_title}`)
+  if(savedItems) todoChecks.value = new Set(JSON.parse(savedItems))
+})
+
 const cellValue = (value: string | number | void) => {
   if(typeof value === 'number') return value.toLocaleString()
   return value
+}
+
+const saveTodo = () => {
+  const todoChecksArr = [...todoChecks.value]
+  const serializedTodoData = JSON.stringify(todoChecksArr)
+  localStorage.setItem(`todo_${options.sheet_title}`, serializedTodoData)
 }
 </script>
 
@@ -36,7 +47,7 @@ const cellValue = (value: string | number | void) => {
         <tr v-for="(value, index) in filteredDatabase" :class="todoChecks.has(`${options.sheet_title}_todo_${index}`) ? 'is-checked' : ''">
           <td v-if="options.is_todo" class="text-center">
             <label class="todo-label">
-              <input type="checkbox" v-model="todoChecks" :value="`${options.sheet_title}_todo_${index}`" class="check-todo">
+              <input type="checkbox" v-model="todoChecks" :value="`${options.sheet_title}_todo_${index}`" class="check-todo" v-on:change="saveTodo()">
               <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['fas', 'square-check']" v-if="todoChecks.has(`${options.sheet_title}_todo_${index}`)" />
               <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['far', 'square']" v-else />
             </label>
