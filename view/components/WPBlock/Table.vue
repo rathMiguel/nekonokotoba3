@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <div class="table-wrap" v-if="options">
+  <div class="table-wrap mb-4" v-if="options">
     <table class="wp-table mb-4" :class="options.options.is_fixed && 'is-fixed'">
       <thead v-if="options.table.h">
         <tr>
@@ -45,8 +45,8 @@
 .table-wrap{
   width: 100%;
   overflow-x: auto;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .wp-table{
