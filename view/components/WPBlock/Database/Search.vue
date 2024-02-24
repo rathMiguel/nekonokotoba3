@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { inject, ref, watch } from 'vue'
 
+const options = inject('options')
 const database = inject('database')
 const filteredDatabase = inject('filteredDatabase')
 const searchWord = ref<string>('')
@@ -25,7 +26,7 @@ watch(
 </script>
 
 <template>
-  <div class="mb-4">
+  <div class="mb-4" v-if="options.is_search">
     <input type="text" class="border-2 rounded-md p-2 w-full" v-model="searchWord" placeholder="キーワードで絞り込み">
   </div>
 </template>
