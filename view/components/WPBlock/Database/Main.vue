@@ -1,43 +1,50 @@
 <script lang="ts" setup>
-  interface Props {
-    options: {
-      sheet_title: string
-      header_titles: string
-      is_todo: boolean
-      is_search: boolean
-    } | undefined
-  }
+import { inject, ref } from 'vue'
 
-  interface PropsData extends Props {
-    data: string[][] | undefined
-  }
+const options = inject('options')
+const database = inject('database')
+const databaseKeys = inject('databaseKeys')
+const filteredDatabase = inject('filteredDatabase')
 
-  const props = withDefaults(defineProps<PropsData>(), {
-    options: undefined,
-    data: undefined
-  })
+filteredDatabase.value = database.value
 
-  const getTableHeadings = (text) => {
-    if(!text && !props.data) return
-    if(!text) {
-      return props.data[0]
-    }
+const getTableHeadings = (text: string) => {
+  if(!text || !database) return
 
-    const headingTitles = text.split(',')
-    return headingTitles
-  }
+  const headingTitles = text.replace(/\s+/g, "").split(',')
+  return headingTitles
+}
+
+const todoChecks = ref(new Set())
+
+const cellValue = (value: string | number | void) => {
+  if(typeof value === 'number') return value.toLocaleString()
+  return value
+}
 </script>
 
 <template>
-  <div class="sheet-database-wrap mb-4">
+  <div class="sheet-database-wrap mb-8">
     <table class="sheet-database-table">
-      <!-- <thead v-if="getTableHeadings(options?.header_titles)">
+      <thead v-if="getTableHeadings(options?.header_titles)">
         <tr>
+          <th v-if="options.is_todo">ToDo</th>
           <th v-for="title in getTableHeadings(options?.header_titles)">{{ title }}</th>
         </tr>
-      </thead> -->
+      </thead>
       <tbody>
-        <tr></tr>
+        <tr v-for="(value, index) in filteredDatabase" :class="todoChecks.has(`${options.sheet_title}_todo_${index}`) ? 'is-checked' : ''">
+          <td v-if="options.is_todo" class="text-center">
+            <label>
+              <input type="checkbox" v-model="todoChecks" :value="`${options.sheet_title}_todo_${index}`" class="check-todo">
+              <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['fas', 'square-check']" v-if="todoChecks.has(`${options.sheet_title}_todo_${index}`)" />
+              <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['far', 'square']" v-else />
+            </label>
+          </td>
+          <td v-for="key in databaseKeys">
+            {{ cellValue(value[key]) }}
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -71,6 +78,7 @@
       color: #FFF;
       background-color: #25374B;
       th{
+      white-space: nowrap;
         &:not(:last-child){
           border-right: 1px solid #FFF;
         }
@@ -81,6 +89,10 @@
       tr{
         &:nth-child(2n + 1){
           background-color: #EDEDED;
+        }
+        
+        &.is-checked{
+          background-color: $color-caution;
         }
       }
     }
@@ -97,5 +109,10 @@
     }
   }
 
-
+  .check-todo{
+    appearance: none;
+  }
+  .icon-checkbox{
+    color: $color-primary;
+  }
 </style>

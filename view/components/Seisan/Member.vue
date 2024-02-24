@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { inject } from 'vue'
+  import { inject, watchEffect } from 'vue'
 
   const seisanState = inject(seisanKey, seisanDefaultStatus)
 

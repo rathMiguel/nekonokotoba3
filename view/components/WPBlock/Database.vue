@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, provide } from 'vue'
+import { provide } from 'vue'
 
 interface Props {
   options: {
