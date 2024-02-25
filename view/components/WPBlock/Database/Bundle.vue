@@ -42,7 +42,7 @@ const valuesWithKeys = () => {
 const databaseData = ref(valuesWithKeys())
 const filteredDatabaseData = ref([])
 
-provide('database', databaseData)
+provide('databaseMaster', databaseData)
 provide('filteredDatabase', filteredDatabaseData)
 provide('databaseKeys', headerKeys)
 

@@ -2,7 +2,7 @@
 import { inject, ref, onMounted } from 'vue'
 
 const options = inject('options')
-const database = inject('database')
+const database = inject('databaseMaster')
 const databaseKeys = inject('databaseKeys')
 const filteredDatabase = inject('filteredDatabase')
 

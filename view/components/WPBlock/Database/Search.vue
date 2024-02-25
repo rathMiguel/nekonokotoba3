@@ -2,7 +2,7 @@
 import { inject, ref, watch } from 'vue'
 
 const options = inject('options')
-const database = inject('database')
+const database = inject('databaseMaster')
 const filteredDatabase = inject('filteredDatabase')
 const searchWord = ref<string>('')
 
