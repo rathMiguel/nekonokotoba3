@@ -4,6 +4,7 @@
 @use '~/assets/scss/mixins' as *;
 
 @mixin richtext{
+  line-height: 1.85;
   p{
     margin-bottom: 1.5em;
   }
@@ -43,6 +44,8 @@
   h5{
     font-weight: 700;
     font-size: 1.1em;
+    margin-bottom: 0.5em;
+    color: #64748b;
   }
 
   ul,

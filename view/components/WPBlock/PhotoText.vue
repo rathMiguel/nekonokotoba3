@@ -16,7 +16,7 @@
     <div class="photo-image-photo text-center mx-auto flex-1 w-[80%] sm:w-[100%]" v-if="options">
       <WPBlockImage :img-id="options.photo" />
     </div>
-    <div v-if="options" v-html="useImages(options.body)" class="wp-content photo-image-body w-[60%] md:w-[50%] lg:w-[66.666%]"></div>
+    <div v-if="options" v-html="useImages(options.body)" class="wp-content photo-image-body w-[60%] md:w-[50%] lg:w-[60%]"></div>
   </div>
 </template>
 

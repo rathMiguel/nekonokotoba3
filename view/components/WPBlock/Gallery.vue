@@ -25,11 +25,15 @@
 
   .gallery{
     display: flex;
-    flex-wrap: nowrap;
-    gap: 1em;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
 
     & > * {
       width: 100%;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: 1.3em;
     }
 
     .column-2{

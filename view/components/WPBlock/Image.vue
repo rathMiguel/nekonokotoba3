@@ -28,11 +28,11 @@
 <template>
   <figure v-on:click="toggleModal()">
     <NuxtImg
-      :src="media.source_url"
+      :src="media.guid.rendered"
       :alt="media.alt_text"
       :class="[imgClass, zoom ? 'is-zoom': '']"
-      :width="width ? width : media.media_details.width"
-      :height="height ? height : media.media_details.height"
+      :width="width || 'auto'"
+      :height="height || 'auto'"
       fit="cover"
       loading="lazy"
       quality="70"
@@ -43,9 +43,9 @@
     <div class="modal-wrap text-right">
       <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
       <NuxtImg
-        :src="media.source_url"
-        :width="media.media_details.width"
-        :height="media.media_details.height"
+        :src="media.guid.rendered"
+        :width="'auto'"
+        :height="'auto'"
         />
     </div>
   </div>
