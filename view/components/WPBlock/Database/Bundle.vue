@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { provide, inject, ref } from 'vue'
+import { type Sheet } from '~/types.d'
 
-const databaseValues = inject('sheetData')
+const databaseValues: Sheet | undefined = inject('sheetData')
 const { values } = databaseValues.value
 const headerKeys: string[] = values[0]
 
