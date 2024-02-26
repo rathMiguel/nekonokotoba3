@@ -3,6 +3,7 @@
     options: {
       photo: number
       body: string
+      photo_position: 'left' | 'right'
     } | undefined
   }
 
@@ -12,7 +13,7 @@
 </script>
 
 <template>
-  <div class="photo-image sm:flex flex-col sm:flex-row gap-4 mb-8">
+  <div class="photo-image sm:flex flex-col sm:flex-row gap-4 mb-8" :class="options?.photo_position === 'right' && 'photo-right'">
     <div class="photo-image-photo text-center mx-auto flex-1 w-[80%] sm:w-[100%]" v-if="options">
       <WPBlockImage :img-id="options.photo" />
     </div>
@@ -24,4 +25,10 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 @use '~/assets/scss/richtext' as *;
+
+.photo-right{
+  @include media(sm){
+    flex-direction: row-reverse;
+  }
+}
 </style>
