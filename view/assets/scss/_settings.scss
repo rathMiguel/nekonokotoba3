@@ -4,21 +4,21 @@
 // カラーバリエーション
 //=====================================
 
-$color-default:   #25374B;
-$color-link:      #0099CC;
+$color-default: #25374b;
+$color-link: #0099cc;
 
-$color-black:     #000;
-$color-white:     #FFF;
-$color-gray:      #CCC;
+$color-black: #000;
+$color-white: #fff;
+$color-gray: #ccc;
 
-$color-primary:   #25374B;
-$color-secondary: #A0C5B4;
-$color-caution:   #E0D9BC;
-$color-minor:     #f2efe2;
-$color-error:     #E49078;
-$color-workflow:  #EFEFEF;
-$color-wactive:   #000;
-$color-submit:    #FF8000;
+$color-primary: #25374b;
+$color-secondary: #a0c5b4;
+$color-caution: #e0d9bc;
+$color-minor: #f2efe2;
+$color-error: #e49078;
+$color-workflow: #efefef;
+$color-wactive: #000;
+$color-submit: #ff8000;
 
 //=====================================
 // レイアウトの幅
@@ -35,33 +35,32 @@ $content-gap-sm: 15px;
 $media-types: (
   default: 'print, screen and (min-width: 961px)',
   xs: 'only screen and (min-width: 480px)',
-  sm:  'only screen and (min-width: 640px)',
-  md:  'only screen and (min-width: 768px)',
-  lg:  'print, screen and (min-width: 1024px)',
+  sm: 'only screen and (min-width: 640px)',
+  md: 'only screen and (min-width: 768px)',
+  lg: 'print, screen and (min-width: 1024px)',
   xl: 'print, screen and (min-width: 1280px)',
   2xl: 'print, screen and (min-width: 1536px)',
   retina: 'screen and (-webkit-min-device-pixel-ratio: 2)',
   print: 'print',
-
 ) !default;
-
 
 //=====================================
 // フォント
 //=====================================
 
-$ja_go:   'Zen Kurenaido', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-$ja_min:  '游明朝' , 'Yu Mincho' , '游明朝体' , 'YuMincho', 'HG明朝B', 'ＭＳ Ｐ明朝', 'MS PMincho', 'MS 明朝', serif;
-$en:  'Karla', 'Zen Kurenaido', '游ゴシック', sans-serif;
+$ja_go: 'Zen Kurenaido', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo,
+  Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+$ja_min: '游明朝', 'Yu Mincho', '游明朝体', 'YuMincho', 'HG明朝B', 'ＭＳ Ｐ明朝', 'MS PMincho', 'MS 明朝', serif;
+$en: 'Karla', 'Zen Kurenaido', '游ゴシック', sans-serif;
 
 //=====================================
 // ボーダー
 //=====================================
 
-$border-default: 1px solid #CCC;
+$border-default: 1px solid #ccc;
 
 //=====================================
 // シャドウ
 //=====================================
 
-$shadow-default: 0px 2px 2px 0px rgba(0,0,0,0.35);
+$shadow-default: 0px 2px 2px 0px rgba(0, 0, 0, 0.35);

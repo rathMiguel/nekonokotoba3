@@ -27,8 +27,12 @@
           <span class="link-text">TOOLS</span>
         </div>
         <ul>
-          <li><NuxtLink class="link-wrap" to="/tools/seisan/">清算計算機</NuxtLink></li>
-          <li><NuxtLink class="link-wrap" to="/tools/gos/">GoS耐性計算機</NuxtLink></li>
+          <li>
+            <NuxtLink class="link-wrap" to="/tools/seisan/">清算計算機</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="link-wrap" to="/tools/gos/">GoS耐性計算機</NuxtLink>
+          </li>
         </ul>
       </li>
     </ul>
@@ -39,64 +43,64 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-.nav-list{
+.nav-list {
   padding: 0;
   margin: 0;
   font-family: $en;
   line-height: 1.4;
-  li{
+  li {
     list-style: none;
     padding: 0;
     margin: 0;
     position: relative;
   }
-  & > li{
-    border-bottom: 1px solid rgba(#FFF, 30%);
-    &:hover{
-      & > ul{
+  & > li {
+    border-bottom: 1px solid rgba(#fff, 30%);
+    &:hover {
+      & > ul {
         display: block;
         padding-left: 1.5em;
-        @include media(md){
+        @include media(md) {
           padding-left: 0;
         }
-        li{
+        li {
           border-bottom: none;
-          @include media(md){
-            border-bottom: 1px solid rgba(#FFF, 30%);
+          @include media(md) {
+            border-bottom: 1px solid rgba(#fff, 30%);
           }
         }
       }
     }
-    .icon{
+    .icon {
       margin-right: 10px;
     }
-    &:first-child{
-      border-top: 1px solid rgba(#FFF, 30%);
+    &:first-child {
+      border-top: 1px solid rgba(#fff, 30%);
     }
-    
-    & > ul{
+
+    & > ul {
       background-color: $color-primary;
       width: $nav-width;
       padding: 0;
       margin: 0;
       display: none;
-      @include media(md){
+      @include media(md) {
         position: absolute;
         left: $nav-width;
         top: 0;
         padding-left: 0;
       }
 
-      li{
-        border-bottom: 1px solid rgba(#FFF, 30%);
-        & > ul{
+      li {
+        border-bottom: 1px solid rgba(#fff, 30%);
+        & > ul {
           width: $nav-width;
           padding: 0;
           margin: 0;
           background-color: $color-primary;
           padding-left: 1.5em;
           width: calc($nav-width - 1.5em);
-          @include media(md){
+          @include media(md) {
             display: none;
             position: absolute;
             left: $nav-width;
@@ -104,10 +108,10 @@
           }
         }
 
-        &:hover{
-          & > ul{
+        &:hover {
+          & > ul {
             display: block;
-            li{
+            li {
               border-bottom: none;
             }
           }
@@ -115,12 +119,12 @@
       }
     }
   }
-  a{
-    color: #FFF;
+  a {
+    color: #fff;
     text-decoration: none;
     width: 100%;
   }
-  .link-wrap{
+  .link-wrap {
     display: flex;
     align-items: center;
     width: 100%;

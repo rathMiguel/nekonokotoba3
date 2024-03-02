@@ -1,17 +1,19 @@
 <script lang="ts" setup>
-  interface Props {
-    options: {
-      maps: {
-        photo: number
-        map: number
-        caption: string
-      }[]
-    } | undefined
-  }
+interface Props {
+  options:
+    | {
+        maps: {
+          photo: number;
+          map: number;
+          caption: string;
+        }[];
+      }
+    | undefined;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    options: undefined
-  })
+const props = withDefaults(defineProps<Props>(), {
+  options: undefined,
+});
 </script>
 
 <template>
@@ -34,43 +36,43 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-.gallery{
+.gallery {
   margin-left: -5px;
   margin-right: -5px;
 }
 
-.gallery-block{
+.gallery-block {
   margin-bottom: 0.5em;
   width: 100%;
   padding-left: 5px;
   padding-right: 5px;
-  @include media(md){
+  @include media(md) {
     width: 50%;
   }
-  @include media(xl){
+  @include media(xl) {
     width: 33.333%;
   }
 }
 
-.gallery-block-wrap{
+.gallery-block-wrap {
   position: relative;
 }
 
-.gallery-block-side{
+.gallery-block-side {
   width: 80px;
   position: absolute;
   right: 10px;
   top: 10px;
-  border: 1px solid #FFF;
-  @include media(md){
+  border: 1px solid #fff;
+  @include media(md) {
     width: 60px;
   }
-  @include media(lg){
+  @include media(lg) {
     width: 80px;
   }
 }
 
-.caption{
+.caption {
   font-size: 0.86em;
   margin-top: 0.3em;
 }

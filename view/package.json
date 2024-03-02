@@ -8,7 +8,8 @@
     "images": "node scripts/image.js",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write '{plugins,components,pages,assets}/**/*.{js,json,ts,vue,scss}'"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

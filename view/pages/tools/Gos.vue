@@ -1,36 +1,35 @@
 <script lang="ts" setup>
-  import { reactive } from 'vue'
+import { reactive } from 'vue';
 
-  interface GosState {
-    status: {
-      str: number
-      agi: number
-      vit: number
-      dex: number
-      int: number
-      luk: number
-    }
-  }
+interface GosState {
+  status: {
+    str: number;
+    agi: number;
+    vit: number;
+    dex: number;
+    int: number;
+    luk: number;
+  };
+}
 
-  const gosState = reactive<GosState>({
-    status: {
-      str: 1,
-      agi: 1,
-      vit: 1,
-      dex: 1,
-      int: 1,
-      luk: 1,
-    }
-  })
+const gosState = reactive<GosState>({
+  status: {
+    str: 1,
+    agi: 1,
+    vit: 1,
+    dex: 1,
+    int: 1,
+    luk: 1,
+  },
+});
 
-  const attrCalc = computed(() => {
-    const attRatio = 18
+const attrCalc = computed(() => {
+  const attRatio = 18;
 
-    return (att1: number, att2: number, step: number = 7): number => {
-      return Math.floor(( att1 + att2 ) / attRatio) * step
-    }
-  })
-
+  return (att1: number, att2: number, step: number = 7): number => {
+    return Math.floor((att1 + att2) / attRatio) * step;
+  };
+});
 </script>
 
 <template>
@@ -41,7 +40,10 @@
   <article>
     <header class="mb-10">
       <BlockH1>GOS耐性計算機</BlockH1>
-      <p><a href="https://rotool.gungho.jp/item/480045/0/" target="_blank" class="underline">ガーディアンオブソウル</a>の耐性やステータスアップの計算ができます</p>
+      <p>
+        <a href="https://rotool.gungho.jp/item/480045/0/" target="_blank" class="underline">ガーディアンオブソウル</a
+        >の耐性やステータスアップの計算ができます
+      </p>
     </header>
     <div class="flex [&>*]:w-full gap-5">
       <div class="p-4 mb-4 bg-slate-100 rounded-md">
@@ -50,37 +52,79 @@
             <tr>
               <th class="pr-1">Str</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.str">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.str"
+                />
               </td>
             </tr>
             <tr>
               <th class="pr-1">Agi</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.agi">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.agi"
+                />
               </td>
             </tr>
             <tr>
               <th class="pr-1">Vit</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.vit">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.vit"
+                />
               </td>
             </tr>
             <tr>
               <th class="pr-1">Int</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.dex">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.dex"
+                />
               </td>
             </tr>
             <tr>
               <th class="pr-1">Dex</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.int">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.int"
+                />
               </td>
             </tr>
             <tr>
               <th class="pr-1">Luk</th>
               <td>
-                <input type="number" class="border-2 p-1 rounded-md" min="1" max="130" step="1" v-model="gosState.status.luk">
+                <input
+                  type="number"
+                  class="border-2 p-1 rounded-md"
+                  min="1"
+                  max="130"
+                  step="1"
+                  v-model="gosState.status.luk"
+                />
               </td>
             </tr>
           </tbody>
@@ -103,11 +147,20 @@
         <h3 class="font-700 mb-3 border-b-2 pb-2">ステータスUP</h3>
         <ul class="[&>*]:py-1">
           <li>Atk + {{ attrCalc(gosState.status.str, gosState.status.luk, 15) }}</li>
-          <li>スキルディレイ - {{ attrCalc(gosState.status.str, gosState.status.luk, 1) }}%</li>
-          <li>攻撃速度 + {{ attrCalc(gosState.status.agi, gosState.status.vit, 2) }}%</li>
+          <li>
+            スキルディレイ -
+            {{ attrCalc(gosState.status.str, gosState.status.luk, 1) }}%
+          </li>
+          <li>
+            攻撃速度 +
+            {{ attrCalc(gosState.status.agi, gosState.status.vit, 2) }}%
+          </li>
           <li>MaxHP + {{ attrCalc(gosState.status.agi, gosState.status.vit, 2) }}%</li>
           <li>Matk + {{ attrCalc(gosState.status.int, gosState.status.dex, 15) }}</li>
-          <li>詠唱時間 - {{ attrCalc(gosState.status.int, gosState.status.dex, 1) }}%</li>
+          <li>
+            詠唱時間 -
+            {{ attrCalc(gosState.status.int, gosState.status.dex, 1) }}%
+          </li>
         </ul>
       </section>
     </div>

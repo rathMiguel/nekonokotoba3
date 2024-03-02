@@ -3,15 +3,15 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-@mixin richtext{
+@mixin richtext {
   line-height: 1.85;
-  p{
+  p {
     margin-bottom: 1.5em;
   }
 
-  h1{
+  h1 {
     font-size: 1.5rem;
-    color: #FFF;
+    color: #fff;
     padding: 1em;
     margin-top: 2em;
     background-color: $color-primary;
@@ -19,29 +19,29 @@
     border-radius: 0.5rem;
     font-weight: 700;
   }
-  
-  h2{
+
+  h2 {
     font-size: 1.5rem;
-    border-bottom: 2px solid #A0C5B4;
+    border-bottom: 2px solid #a0c5b4;
     padding-bottom: 10px;
     margin-bottom: 1em;
     margin-top: 1.5em;
     font-weight: 700;
   }
-  
-  h3{
+
+  h3 {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
     font-weight: 700;
   }
-  
-  h4{
+
+  h4 {
     margin-bottom: 1em;
     font-weight: 700;
     font-size: 1.2em;
   }
-  
-  h5{
+
+  h5 {
     font-weight: 700;
     font-size: 1.1em;
     margin-bottom: 0.5em;
@@ -49,59 +49,60 @@
   }
 
   ul,
-  ol{
+  ol {
     margin-bottom: 1.5em;
     list-style-type: disc;
     margin-left: 1em;
-    li{
+    li {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
-      &::marker{
-        color: #A0C5B4;
+      &::marker {
+        color: #a0c5b4;
       }
     }
   }
 
-  ol{
+  ol {
     list-style-type: decimal;
   }
 
-  table{
-  table-layout: fixed;
-  font-size: 0.86em;
-  width: 100%;
-  th, td{
-    padding: 1em;
-    border: 1px solid #DDD;
-    a{
-      text-decoration: underline;
-      &:hover{
-        text-decoration: none;
+  table {
+    table-layout: fixed;
+    font-size: 0.86em;
+    width: 100%;
+    th,
+    td {
+      padding: 1em;
+      border: 1px solid #ddd;
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    thead {
+      color: #fff;
+      background-color: #25374b;
+      th {
+        &:not(:last-child) {
+          border-right: 1px solid #fff;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(2n + 1) {
+          background-color: #ededed;
+        }
       }
     }
   }
 
-  thead{
-    color: #FFF;
-    background-color: #25374B;
-    th{
-      &:not(:last-child){
-        border-right: 1px solid #FFF;
-      }
-    }
-  }
-
-  tbody{
-    tr{
-      &:nth-child(2n + 1){
-        background-color: #EDEDED;
-      }
-    }
-  }
-  }
-
-  .alignleft{
-    @include media(md){
+  .alignleft {
+    @include media(md) {
       float: left;
       margin-right: 1.5em;
     }

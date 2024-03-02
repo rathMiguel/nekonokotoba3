@@ -1,17 +1,16 @@
 <script lang="ts" setup>
-  import { inject, computed } from 'vue'
-  
-  const seisanState = inject(seisanKey, seisanDefaultStatus)
+import { inject, computed } from 'vue';
 
-  const aomoutsTotal = computed(() => {
-    
-    const amlountsCopy = seisanState.amounts.concat()
-    const nonEmptyAmounts = amlountsCopy.filter((value: number | '') => value !== '')
+const seisanState = inject(seisanKey, seisanDefaultStatus);
 
-    return nonEmptyAmounts.reduce((x, y) => x + y, 0)
-  })
+const aomoutsTotal = computed(() => {
+  const amlountsCopy = seisanState.amounts.concat();
+  const nonEmptyAmounts = amlountsCopy.filter((value: number | '') => value !== '');
 
-  seisanState
+  return nonEmptyAmounts.reduce((x, y) => x + y, 0);
+});
+
+seisanState;
 </script>
 
 <template>
@@ -29,7 +28,7 @@
         <dt>一人あたりの受取額：</dt>
         <dd class="flex items-center">
           <span class="border-b-2 px-1">
-            {{ (Math.floor(aomoutsTotal / seisanState.member)).toLocaleString() }}
+            {{ Math.floor(aomoutsTotal / seisanState.member).toLocaleString() }}
           </span>
           <span class="ml-1">zeny</span>
           <CopyClipboard :text="String(Math.floor(aomoutsTotal / seisanState.member))" />

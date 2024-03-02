@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-const route = useRoute()
-const { data: posts } = useFetch('/api/wp/posts/items/')
-const title: string = 'アイテムデータ'
-
+const route = useRoute();
+const { data: posts } = useFetch('/api/wp/posts/items/');
+const title: string = 'アイテムデータ';
 </script>
 
 <template>
@@ -16,5 +15,4 @@ const title: string = 'アイテムデータ'
   <PostList :posts="posts" :post-type="route.name" />
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

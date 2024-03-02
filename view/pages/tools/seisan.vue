@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import { reactive, provide } from 'vue'
-  import { type Seisan } from '~/types.d'
+import { reactive, provide } from 'vue';
+import { type Seisan } from '~/types.d';
 
-  const seisanState = reactive<Seisan>(seisanDefaultStatus)
+const seisanState = reactive<Seisan>(seisanDefaultStatus);
 
-   provide(seisanKey, seisanState)
+provide(seisanKey, seisanState);
 </script>
 
 <template>

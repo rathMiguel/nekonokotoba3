@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  interface Props {
-    title: string
-  }
+interface Props {
+  title: string;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    title: 'タイトルが入ります',
-  })
+const props = withDefaults(defineProps<Props>(), {
+  title: 'タイトルが入ります',
+});
 </script>
 
 <template>

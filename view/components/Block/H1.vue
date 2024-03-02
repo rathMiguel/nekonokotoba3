@@ -10,11 +10,11 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-h1{
-  color: #FFF;
+h1 {
+  color: #fff;
   font-size: 1.5em;
   padding: 1em;
-  @include media(sm){
+  @include media(sm) {
     padding: 1.6em 1.5em;
   }
 }

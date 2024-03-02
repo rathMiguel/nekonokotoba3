@@ -1,13 +1,15 @@
 <script lang="ts" setup>
-  interface Props {
-    options: {
-      content: string
-    } | undefined
-  }
+interface Props {
+  options:
+    | {
+        content: string;
+      }
+    | undefined;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    options: undefined,
-  })
+const props = withDefaults(defineProps<Props>(), {
+  options: undefined,
+});
 </script>
 
 <template>
@@ -21,7 +23,7 @@
 @use '~/assets/scss/mixins' as *;
 @use '~/assets/scss/richtext' as *;
 
-.wp-content{
+.wp-content {
   color: $color-primary;
   @include richtext;
 }

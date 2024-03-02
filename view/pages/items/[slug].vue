@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  const route = useRoute('data-slug')
-  const { data } = await useFetch(`/api/wp/posts/items/${route.params.slug}`)
+const route = useRoute('data-slug');
+const { data } = await useFetch(`/api/wp/posts/items/${route.params.slug}`);
 </script>
 
 <template>

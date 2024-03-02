@@ -1,17 +1,22 @@
 <script lang="ts" setup>
-  interface Props {
-    data: Object
-  }
+interface Props {
+  data: Object;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    data: Object,
-  })
+const props = withDefaults(defineProps<Props>(), {
+  data: Object,
+});
 </script>
 
 <template>
   <article>
     <div v-for="block in data.acf.content">
-      <WPBlockImage :img-id="block.photo" v-if="block.acf_fc_layout === 'image'" class="mb-8" :img-class="block.is_w_full ? 'w-full' : ''" />
+      <WPBlockImage
+        :img-id="block.photo"
+        v-if="block.acf_fc_layout === 'image'"
+        class="mb-8"
+        :img-class="block.is_w_full ? 'w-full' : ''"
+      />
       <WPBlockHeading :options="block" v-if="block.acf_fc_layout === 'heading'" />
       <WPBlockRichText :options="block" v-if="block.acf_fc_layout === 'rich_text'" />
       <WPBlockLink :options="block" v-if="block.acf_fc_layout === 'link'" />

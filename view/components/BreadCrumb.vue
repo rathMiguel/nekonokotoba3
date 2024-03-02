@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-  interface Props {
-    texts: string[]
-    links: string[]
-  }
+interface Props {
+  texts: string[];
+  links: string[];
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    texts: () => ['HOME'],
-    links: () => ['/']
-  })
+const props = withDefaults(defineProps<Props>(), {
+  texts: () => ['HOME'],
+  links: () => ['/'],
+});
 
-  const linksCount = props.links.length
+const linksCount = props.links.length;
 </script>
 
 <template>
@@ -24,19 +24,19 @@
 </template>
 
 <style lang="scss" scoped>
-.breadcrumb{
-  background-color: #DFE7F0;
+.breadcrumb {
+  background-color: #dfe7f0;
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   font-size: 0.86em;
-  ul{
+  ul {
     display: flex;
     align-items: center;
-    li{
+    li {
       display: inline-flex;
       align-items: center;
-      &:not(:last-child){
-        &::after{
+      &:not(:last-child) {
+        &::after {
           content: '';
           display: inline-flex;
           height: 1em;
@@ -52,9 +52,9 @@
     }
   }
 
-  a{
+  a {
     text-decoration: underline;
-    &:hover{
+    &:hover {
       text-decoration: none;
     }
   }

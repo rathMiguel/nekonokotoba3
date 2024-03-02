@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  const config = useRuntimeConfig()
-  const { data: posts } = await useFetch(`/api/wp/posts/posts/`)
+const config = useRuntimeConfig();
+const { data: posts } = await useFetch(`/api/wp/posts/posts/`);
 </script>
 
 <template>
@@ -24,16 +24,16 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-.news-maintitle{
+.news-maintitle {
   font-size: 1.4em;
   margin-bottom: 10px;
   padding-left: 15px;
-  @include media(sm){
+  @include media(sm) {
     padding-left: 30px;
   }
 }
 
-.news-dl{
+.news-dl {
   border-top: 1px solid lighten($color-primary, 65);
   border-bottom: 1px solid lighten($color-primary, 65);
   overflow: hidden;
@@ -42,22 +42,21 @@
   margin-bottom: -1px;
   padding-left: 15px;
   padding-right: 15px;
-  @include media(sm){
+  @include media(sm) {
     padding-left: 30px;
     padding-right: 30px;
   }
-  dt{
-    color: #AAA;
-    @include media(sm){
+  dt {
+    color: #aaa;
+    @include media(sm) {
       float: left;
       padding-left: 0.5em;
     }
   }
-  dd{
-    @include media(sm){
+  dd {
+    @include media(sm) {
       padding-left: 7.5em;
     }
   }
 }
-
 </style>

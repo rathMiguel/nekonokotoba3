@@ -1,28 +1,30 @@
 <script lang="ts" setup>
-  const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
 
-  interface Props {
-    options: {
-      title: string
-      link_type: boolean // true: 内部リンク false: 外部リンク
-      link_internal?: number
-      link_external?: string
-      is_button: boolean
-      button_type: string
-    } | undefined
-  }
+interface Props {
+  options:
+    | {
+        title: string;
+        link_type: boolean; // true: 内部リンク false: 外部リンク
+        link_internal?: number;
+        link_external?: string;
+        is_button: boolean;
+        button_type: string;
+      }
+    | undefined;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    options: undefined,
-  })
+const props = withDefaults(defineProps<Props>(), {
+  options: undefined,
+});
 
-  const { data: internalLinkData } = await useFetch(`/api/wp/posts/events/id/${props.options?.link_internal}`)
-  const getLinkSlug = (data: any): string | undefined => {
-    if(data === undefined || data.link === undefined) return undefined
+const { data: internalLinkData } = await useFetch(`/api/wp/posts/events/id/${props.options?.link_internal}`);
+const getLinkSlug = (data: any): string | undefined => {
+  if (data === undefined || data.link === undefined) return undefined;
 
-    const linkText =  data.link.replace(runtimeConfig.public.WP_BASE_URL, '/')
-    return linkText
-  }
+  const linkText = data.link.replace(runtimeConfig.public.WP_BASE_URL, '/');
+  return linkText;
+};
 </script>
 
 <template>
@@ -31,7 +33,8 @@
       :to="getLinkSlug(internalLinkData) || options?.link_external"
       :target="options?.link_type ? '_self' : '_blank'"
       :class="[options?.is_button && 'button', `button-${options?.button_type}`]"
-    >{{ options?.title }}</NuxtLink>
+      >{{ options?.title }}</NuxtLink
+    >
   </p>
 </template>
 
@@ -39,14 +42,14 @@
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 
-a{
+a {
   text-decoration: underline;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
 
-.button{
+.button {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -57,32 +60,32 @@ a{
   padding: 5px 1em;
   height: 45px;
 
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 
-  &.button-primary{
+  &.button-primary {
     background-color: $color-primary;
     height: 45px;
     border-radius: 8px;
     border: 2px solid $color-primary;
-    color: #FFF;
-    &:hover{
+    color: #fff;
+    &:hover {
       color: $color-primary;
       background-color: #fff;
     }
   }
 
-  &.button-primary_inverse{
+  &.button-primary_inverse {
     height: 45px;
     border-radius: 8px;
     border: 2px solid $color-primary;
-    color: #FFF;
+    color: #fff;
     color: $color-primary;
     background-color: #fff;
-    &:hover{
+    &:hover {
       background-color: $color-primary;
-      color: #FFF;
+      color: #fff;
     }
   }
 }

@@ -1,21 +1,31 @@
 <script setup lang="ts">
-  const gallery: string[] = [
-    'screenBreidablik030.jpg',
-    'screenBreidablik008.jpg',
-    'screenBreidablik007.jpg',
-    'screenBreidablik005.jpg',
-    'screenBreidablik041.jpg',
-    'screenBreidablik017.jpg',
-    'screenMimir003.jpg',
-    'screenBreidablik046.jpg'
-  ]
+const gallery: string[] = [
+  'screenBreidablik030.jpg',
+  'screenBreidablik008.jpg',
+  'screenBreidablik007.jpg',
+  'screenBreidablik005.jpg',
+  'screenBreidablik041.jpg',
+  'screenBreidablik017.jpg',
+  'screenMimir003.jpg',
+  'screenBreidablik046.jpg',
+];
 </script>
 
 <template>
   <section class="mainimage mb-2">
     <div class="mainimage__gallery">
       <div class="gallery-block" v-for="name in gallery">
-        <NuxtImg :src="`/images/top/${name}`" format="webp" quality="70" fit="cover" height="300" width="300" preload decoding="async" alt="" />
+        <NuxtImg
+          :src="`/images/top/${name}`"
+          format="webp"
+          quality="70"
+          fit="cover"
+          height="300"
+          width="300"
+          preload
+          decoding="async"
+          alt=""
+        />
       </div>
     </div>
     <div class="mainimage__logo">
@@ -37,18 +47,18 @@
 // mainimage
 //
 
-.mainimage{
+.mainimage {
   position: relative;
   display: flex;
   align-items: center;
 
-  &__gallery{
+  &__gallery {
     display: flex;
     flex-wrap: wrap;
     position: relative;
     top: 0;
-    &::before{
-      content: "";
+    &::before {
+      content: '';
       display: block;
       position: absolute;
       z-index: -5;
@@ -63,7 +73,7 @@
       width: 25%;
     }
 
-    img{
+    img {
       width: 100%;
       opacity: 0.2;
       filter: saturate(10%);
@@ -74,7 +84,7 @@
     }
   }
 
-  &__logo{
+  &__logo {
     position: absolute;
     z-index: 10;
     left: 0;
@@ -85,31 +95,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #FFF;
-    h1{
+    color: #fff;
+    h1 {
       margin-left: -60px;
-      @include media(md){
+      @include media(md) {
         margin-left: -20px;
       }
     }
-    img{
+    img {
       width: 200px;
-      @include media(sm){
+      @include media(sm) {
         width: 400px;
       }
     }
   }
 }
 
-.mainimage-subtitle{
+.mainimage-subtitle {
   position: relative;
   margin-top: 10px;
-  @include media(md){
+  @include media(md) {
     font-size: 1.2em;
   }
-  &::before{
+  &::before {
     display: block;
-    content: "";
+    content: '';
     height: 4px;
     width: 40px;
     background-color: #fff;
@@ -118,8 +128,8 @@
     margin-bottom: 1em;
     margin-top: 0em;
   }
-  
-  p{
+
+  p {
     margin-bottom: 0;
   }
 }

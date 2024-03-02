@@ -1,17 +1,22 @@
 <script lang="ts" setup>
-  interface Props {
-    text: string
-  }
+interface Props {
+  text: string;
+}
 
-  const props = withDefaults(defineProps<Props>(), {
-    text: ''
-  })
+const props = withDefaults(defineProps<Props>(), {
+  text: '',
+});
 
-  const copyToClipboard = (text: string) => {
-    return navigator.clipboard.writeText(text)
-      .then(() => { console.log(`copy to Clipboard "${text}"`) })
-      .catch(e => { console.error(e) })
-  }
+const copyToClipboard = (text: string) => {
+  return navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      console.log(`copy to Clipboard "${text}"`);
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+};
 </script>
 
 <template>
