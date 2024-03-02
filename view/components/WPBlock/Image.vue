@@ -28,7 +28,7 @@
 <template>
   <figure v-on:click="toggleModal()">
     <NuxtImg
-      :src="media.guid.rendered"
+      :src="media.source_url"
       :alt="media.alt_text"
       :class="[imgClass, zoom ? 'is-zoom': '']"
       :width="width || 'auto'"
