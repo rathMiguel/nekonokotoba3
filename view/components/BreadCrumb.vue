@@ -32,9 +32,11 @@ const linksCount = props.links.length;
   ul {
     display: flex;
     align-items: center;
+    overflow-x: auto;
     li {
       display: inline-flex;
       align-items: center;
+      white-space: nowrap;
       &:not(:last-child) {
         &::after {
           content: '';
