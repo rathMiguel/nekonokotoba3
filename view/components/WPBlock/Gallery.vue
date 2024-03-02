@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <div class="gallery mb-8" v-if="options">
     <div class="gallery-block" :class="`column-${options.column_number}`" v-for="imgId in options.gallery">
-      <WPBlockImage :img-id="imgId" />
+      <WPBlockImage :img-id="imgId" img-class="w-full" />
     </div>
   </div>
 </template>

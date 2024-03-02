@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
     :class="options?.photo_position === 'right' && 'photo-right'"
   >
     <div class="photo-image-photo text-center mx-auto flex-1 w-[80%] sm:w-[100%]" v-if="options">
-      <WPBlockImage :img-id="options.photo" />
+      <WPBlockImage :img-id="options.photo" img-class="w-full" />
     </div>
     <div
       v-if="options"
