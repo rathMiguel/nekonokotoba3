@@ -1,6 +1,6 @@
 [build]
   base = "view/"
-  publish = "dist"
+  publish = ".output/public"
   command = "npm run generate"
 
 [[redirects]]
