@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
       <div class="gallery-block-wrap">
         <div class="gallery-block-main" v-if="photo">
           <WPBlockImage :img-id="photo" :width="400" :height="300" img-class="w-full" />
-          <div class="caption">{{ caption }}</div>
+          <div class="caption mb-3">{{ caption }}</div>
         </div>
         <div class="gallery-block-side" v-if="map">
           <WPBlockImage :img-id="map" :width="80" :height="80" zoom />

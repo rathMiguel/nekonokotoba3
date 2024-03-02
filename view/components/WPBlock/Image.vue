@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 interface Props {
   imgId: number;
-  height?: number | 'auto' | null;
-  width?: number | 'auto' | null;
+  height?: number | 'auto' | undefined;
+  width?: number | 'auto' | undefined;
   fit?: 'contain' | 'cover';
   imgClass?: string;
   zoom?: boolean;
@@ -10,8 +10,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   imgId: 0,
-  height: null,
-  width: null,
+  height: undefined,
+  width: undefined,
   fit: 'cover',
   imgClass: '',
   zoom: false,
@@ -32,8 +32,8 @@ const toggleModal = () => {
       :src="media.source_url"
       :alt="media.alt_text"
       :class="[imgClass, zoom ? 'is-zoom' : '']"
-      :width="width || 'auto'"
-      :height="height || 'auto'"
+      :width="width || media.media_details.width || 'auto'"
+      :height="height || media.media_details.height || 'auto'"
       :fit="fit"
       loading="lazy"
       quality="70"

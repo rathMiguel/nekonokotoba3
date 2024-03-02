@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   </aside>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '~/assets/scss/settings' as *;
 @use '~/assets/scss/mixins' as *;
 @use '~/assets/scss/richtext' as *;
