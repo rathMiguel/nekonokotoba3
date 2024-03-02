@@ -3,6 +3,7 @@
     imgId: number,
     height?: number | 'auto' | null
     width?: number | 'auto' | null
+    fit?: 'contain' | 'cover'
     imgClass?: string
     zoom?: boolean
   }
@@ -11,6 +12,7 @@
     imgId: 0,
     height: null,
     width: null,
+    fit: 'cover',
     imgClass: '',
     zoom: false
   })
@@ -30,12 +32,13 @@
     <NuxtImg
       :src="media.source_url"
       :alt="media.alt_text"
-      :class="[imgClass, zoom ? 'is-zoom': '']"
+      :class="[imgClass, zoom ? 'is-zoom': '', 'w-full']"
       :width="width || 'auto'"
       :height="height || 'auto'"
-      fit="cover"
+      :fit="fit"
       loading="lazy"
       quality="70"
+      background="transparent"
       />
     <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered " class="mt-2"></figcaption>
   </figure>
