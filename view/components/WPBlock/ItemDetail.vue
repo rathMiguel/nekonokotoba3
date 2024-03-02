@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <blockquote class="text-sm leading-[1.85] border-2 border-secondary p-4 lg:p-6 mb-8">
-    <div class="float-left mr-5 mb-5">
+    <div class="float-left mr-5 mb-5 w-[100px]">
       <WPBlockImage :img-id="options?.photo" :width="100" :height="100" fit="contain" />
     </div>
     <p>{{ options?.description }}</p>

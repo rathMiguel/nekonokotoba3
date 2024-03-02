@@ -31,7 +31,7 @@ const toggleModal = () => {
     <NuxtImg
       :src="media.source_url"
       :alt="media.alt_text"
-      :class="[imgClass, zoom ? 'is-zoom' : '', 'w-full']"
+      :class="[imgClass, zoom ? 'is-zoom' : '']"
       :width="width || 'auto'"
       :height="height || 'auto'"
       :fit="fit"
