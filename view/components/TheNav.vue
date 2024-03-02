@@ -16,10 +16,10 @@
         </NuxtLink>
       </li>
       <li>
-        <div class="link-wrap">
+        <NuxtLink class="link-wrap" to="/items/">
           <font-awesome-icon class="icon" :icon="['fas', 'carrot']" />
           <span class="link-text">ITEM DATA</span>
-        </div>
+        </NuxtLink>
       </li>
       <li>
         <div class="link-wrap">

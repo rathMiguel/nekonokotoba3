@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: posts } = useFetch('/api/wp/posts/events/')
-const title: string = 'イベントデータ'
+const { data: posts } = useFetch('/api/wp/posts/items/')
+const title: string = 'アイテムデータ'
 
 </script>
 
@@ -12,7 +12,7 @@ const title: string = 'イベントデータ'
     <Meta name="keywords" content="" />
   </Head>
   <MainTitle :title="title" />
-  <BreadCrumb :texts="['HOME', 'イベントデータ']" :links="['/']" />
+  <BreadCrumb :texts="['HOME', 'アイテムデータ']" :links="['/']" />
   <PostList :posts="posts" :post-type="route.name" />
 </template>
 
