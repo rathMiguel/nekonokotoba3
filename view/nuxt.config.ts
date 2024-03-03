@@ -6,6 +6,11 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
+  nitro: {
+    prerender: {
+      failOnError: false
+    }
+  },
   app: {
     head: {
       link: [
