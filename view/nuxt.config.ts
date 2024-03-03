@@ -6,14 +6,6 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  nitro: {
-    preset: 'netlify'
-  },
-  routeRules: {
-    '/': {
-      static: true
-    }
-  },
   app: {
     head: {
       link: [

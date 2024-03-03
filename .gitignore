@@ -11,4 +11,3 @@ logs
 .env
 .env.*
 !.env.example
-public/images/notion/*
