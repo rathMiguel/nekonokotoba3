@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { onMounted } from 'vue'
+
 interface Props {
   imgId: number;
   height?: number | 'auto' | undefined;
@@ -24,6 +26,13 @@ const toggleModal = () => {
   if (!props.zoom) return;
   isVisible.value = !isVisible.value;
 };
+
+const isLoaded = ref<boolean>(false);
+
+onMounted(() => {
+  isLoaded.value = true
+})
+
 </script>
 
 <template>
@@ -31,7 +40,7 @@ const toggleModal = () => {
     <NuxtImg
       :src="media.source_url"
       :alt="media.alt_text"
-      :class="[imgClass, zoom ? 'is-zoom' : '']"
+      :class="[imgClass, zoom ? 'is-zoom' : '', isLoaded || 'bg-slate-200']"
       :width="width || media.media_details.width || 'auto'"
       :height="height || media.media_details.height || 'auto'"
       :fit="fit"
