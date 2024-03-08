@@ -8,36 +8,61 @@ const filteredDatabase = inject('filteredDatabase');
 
 filteredDatabase.value = database.value;
 
-const getTableHeadings = (text: string) => {
+/**
+ * テーブルのヘッダーの表示処理 
+ * カンマ区切りにした文字をテーブルヘッダー用の配列に変換
+ * 
+ * @param text テーブルヘッダー用のフィールドの文字列
+ * @return ヘッダーの各セルの文字
+ */
+
+const getTableHeadings = (text: string): string[] | void => {
   if (!text || !database) return;
 
   const headingTitles = text.replace(/\s+/g, '').split(',');
   return headingTitles;
 };
 
-const todoChecks = ref(new Set());
+/** ToDo判定用のデータセットの初期化 */
+const todoChecks = ref(new Set<string>());
 
+/**
+ * ロード時、ストレージにセットされたToDoデータをセット
+ */
 onMounted(() => {
   const savedItems = localStorage.getItem(`todo_${options.sheet_title}`);
   if (savedItems) todoChecks.value = new Set(JSON.parse(savedItems));
 });
 
+/**
+ * ToDoチェックのセーブ  
+ * チェックされたToDoをローカルストレージに保存する
+ */
+
+const saveTodo = () => {
+  const todoChecksArr = [...todoChecks.value];
+  const serializedTodoData: string = JSON.stringify(todoChecksArr);
+  return localStorage.setItem(`todo_${options.sheet_title}`, serializedTodoData);
+};
+
+/**
+ * セル内の文字を加工して返す
+ * 
+ * @param value セル内の文字列
+ * @return numberの場合、カンマ区切りの数字
+ * @return stringの場合、文字列を返す
+ */
 const cellValue = (value: string | number | void) => {
   if (typeof value === 'number') return value.toLocaleString();
   return value;
 };
 
-const saveTodo = () => {
-  const todoChecksArr = [...todoChecks.value];
-  const serializedTodoData = JSON.stringify(todoChecksArr);
-  localStorage.setItem(`todo_${options.sheet_title}`, serializedTodoData);
-};
 </script>
 
 <template>
   <div class="sheet-database-wrap mb-8">
     <table class="sheet-database-table">
-      <thead v-if="getTableHeadings(options?.header_titles)">
+      <thead v-if="getTableHeadings(options.header_titles)">
         <tr>
           <th v-if="options.is_todo">ToDo</th>
           <th v-for="title in getTableHeadings(options?.header_titles)">
@@ -48,28 +73,31 @@ const saveTodo = () => {
       <tbody>
         <tr
           v-for="(value, index) in filteredDatabase"
-          :class="todoChecks.has(`${options.sheet_title}_todo_${index}`) ? 'is-checked' : ''"
+          :class="todoChecks.has(`${options.sheet_title }_${value.key}`) ? 'is-checked' : ''"
+          :key="`${value.key}_${index}`"
         >
           <td v-if="options.is_todo" class="text-center">
             <label class="todo-label">
               <input
                 type="checkbox"
                 v-model="todoChecks"
-                :value="`${options.sheet_title}_todo_${index}`"
+                :value="`${options.sheet_title }_${value.key}`"
                 class="check-todo"
                 v-on:change="saveTodo()"
               />
               <font-awesome-icon
                 class="icon icon-checkbox text-lg"
                 :icon="['fas', 'square-check']"
-                v-if="todoChecks.has(`${options.sheet_title}_todo_${index}`)"
+                v-if="todoChecks.has(`${options.sheet_title }_${value.key}`)"
               />
               <font-awesome-icon class="icon icon-checkbox text-lg" :icon="['far', 'square']" v-else />
             </label>
           </td>
-          <td v-for="key in databaseKeys">
-            {{ cellValue(value[key]) }}
-          </td>
+          <template v-for="(key, indexCell) in databaseKeys">
+            <td v-if="key !== 'key'" :key="`${value['key']}_${indexCell}`">
+              {{ cellValue(value[key]) }}
+            </td>
+          </template>
         </tr>
       </tbody>
     </table>
