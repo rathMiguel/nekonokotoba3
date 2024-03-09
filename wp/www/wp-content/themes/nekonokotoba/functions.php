@@ -107,3 +107,21 @@ function my_acf_fields_flexible_content_layout_title( $title, $field, $layout, $
 }
 
 add_filter('acf/fields/flexible_content/layout_title/name=content', 'my_acf_fields_flexible_content_layout_title', 10, 4);
+
+/**
+ * プレビュー用の設定
+ */
+
+ add_action("template_redirect", function () {
+  if (!is_admin() && isset($_GET["preview"]) && $_GET["preview"] == true) {
+    $id = $_GET["p"];
+    $redirect = add_query_arg(
+      [
+        "preview" => "true",
+        "id" => $id,
+      ],
+      "http://localhost:3000/preview/" // TODO 本番環境でも動作させる場合はドメインを変更
+    );
+    wp_redirect($redirect);
+  }
+});

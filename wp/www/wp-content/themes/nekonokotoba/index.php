@@ -1,3 +1,3 @@
 <?php
-	wp_redirect( 'https://nekotobalab.com/', 301 );
-	exit;
+	// wp_redirect( 'https://nekotobalab.com/', 301 );
+	// exit;

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const route = useRoute();
-const { data: posts } = useFetch('/api/wp/posts/items/');
+const { data: posts } = await useFetch('/api/wp/posts/items/');
 const title: string = 'アイテムデータ';
 </script>
 

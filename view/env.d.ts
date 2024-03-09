@@ -9,6 +9,7 @@ declare module 'process' {
         SHEET_ID: string;
         GOOGLE_API_KEY: string;
         GTM_KEY: string;
+        WP_PREVIEW_KEY: string;
       }
     }
   }
