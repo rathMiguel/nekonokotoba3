@@ -50,19 +50,7 @@ a {
 }
 
 .button {
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.1em;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  padding: 5px 1em;
-  height: 45px;
-
-  &:hover {
-    text-decoration: none;
-  }
+  @include button-basic;
 
   &.button-primary {
     background-color: $color-primary;
