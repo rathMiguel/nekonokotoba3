@@ -8,6 +8,7 @@ interface Props {
   fit?: 'contain' | 'cover';
   imgClass?: string;
   zoom?: boolean;
+  preview?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,9 +18,14 @@ const props = withDefaults(defineProps<Props>(), {
   fit: 'cover',
   imgClass: '',
   zoom: false,
+  preview: false
 });
 
-const { error, data: media } = await useFetch(`/api/wp/media/${props.imgId}`);
+const { error, data: media } = await useFetch(`/api/wp/media/${props.imgId}`, {
+  params: {
+    preview: props.preview
+  }
+});
 
 const isVisible = ref<boolean>(false);
 const toggleModal = () => {
