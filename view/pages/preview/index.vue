@@ -2,7 +2,7 @@
 const route = useRoute()
 const query = route.query
 
-const { error, data } = await useFetch(`/api/wp/posts/items/preview/`, {
+const { error, data } = await useFetch(`/api/wp/posts/${query.posttype}/preview/`, {
   params: query
 });
 

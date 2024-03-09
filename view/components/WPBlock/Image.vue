@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   zoom: false,
 });
 
-const { data: media } = await useFetch(`/api/wp/media/${props.imgId}`);
+const { error, data: media } = await useFetch(`/api/wp/media/${props.imgId}`);
 
 const isVisible = ref<boolean>(false);
 const toggleModal = () => {
@@ -32,28 +32,29 @@ const isLoaded = ref<boolean>(false);
 onMounted(() => {
   isLoaded.value = true
 })
-
 </script>
 
 <template>
-  <figure v-on:click="toggleModal()">
-    <NuxtImg
-      :src="media.source_url"
-      :alt="media.alt_text"
-      :class="[imgClass, zoom ? 'is-zoom' : '', isLoaded || 'bg-slate-200']"
-      :width="width || media.media_details.width || 'auto'"
-      :height="height || media.media_details.height || 'auto'"
-      :fit="fit"
-      loading="lazy"
-      quality="70"
-      background="transparent"
-    />
-    <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered" class="mt-2"></figcaption>
-  </figure>
-  <div class="modal" v-on:click="toggleModal()" v-show="isVisible">
-    <div class="modal-wrap text-right">
-      <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
-      <NuxtImg :src="media.guid.rendered" :width="'auto'" :height="'auto'" />
+  <div v-if="media.status === 'inherit'">
+    <figure v-on:click="toggleModal()">
+      <NuxtImg
+        :src="media.source_url"
+        :alt="media.alt_text"
+        :class="[imgClass, zoom ? 'is-zoom' : '', isLoaded || 'bg-slate-200']"
+        :width="width || media.media_details.width || 'auto'"
+        :height="height || media.media_details.height || 'auto'"
+        :fit="fit"
+        loading="lazy"
+        quality="70"
+        background="transparent"
+      />
+      <figcaption v-if="media.caption.rendered" v-html="media.caption.rendered" class="mt-2"></figcaption>
+    </figure>
+    <div class="modal" v-on:click="toggleModal()" v-show="isVisible">
+      <div class="modal-wrap text-right">
+        <span class="modal-close inline-block mb-2 font-kurenaido">× 閉じる</span>
+        <NuxtImg :src="media.guid.rendered" :width="'auto'" :height="'auto'" />
+      </div>
     </div>
   </div>
 </template>

@@ -114,11 +114,14 @@ add_filter('acf/fields/flexible_content/layout_title/name=content', 'my_acf_fiel
 
  add_action("template_redirect", function () {
   if (!is_admin() && isset($_GET["preview"]) && $_GET["preview"] == true) {
+		$posttype = get_post_type(get_the_ID());
+
     $id = $_GET["p"];
     $redirect = add_query_arg(
       [
         "preview" => "true",
         "id" => $id,
+        "posttype" => $posttype,
       ],
       "http://localhost:3000/preview/" // TODO 本番環境でも動作させる場合はドメインを変更
     );

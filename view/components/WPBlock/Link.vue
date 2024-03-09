@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   options: undefined,
 });
 
-const { data: internalLinkData } = await useFetch(`/api/wp/posts/events/id/${props.options?.link_internal}`);
+const { data: internalLinkData } = await useFetch(`/api/wp/posts/events/${props.options.link_internal}`);
 const getLinkSlug = (data: any): string | undefined => {
   if (data === undefined || data.link === undefined) return undefined;
 
