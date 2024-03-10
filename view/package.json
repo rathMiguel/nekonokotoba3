@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "cp prod.nuxtignore .nuxtignore && nuxt generate && rm .nuxtignore",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "format": "prettier --write '{plugins,components,pages,assets}/**/*.{js,json,ts,vue,scss}'"
