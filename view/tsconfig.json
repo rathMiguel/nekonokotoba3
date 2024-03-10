@@ -2,6 +2,7 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "lib": ["es2017", "DOM"]
+    "lib": ["es2017", "DOM"],
+    "types": ["@nuxt/image"]
   }
 }

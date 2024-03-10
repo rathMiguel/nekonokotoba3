@@ -8,7 +8,9 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      failOnError: false
+      failOnError: false,
+      interval: 1000,
+      ignore: ['/preview']
     }
   },
   app: {
