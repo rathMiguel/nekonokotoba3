@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { inject, ref, watch } from 'vue';
+import type { DatabaseOptions } from '~/types.d';
 
-const options = inject('options');
-const database = inject('databaseMaster');
-const filteredDatabase = inject('filteredDatabase');
+const options = inject<DatabaseOptions>('options');
+const database = inject<{ [key: string]: string | number }[]>('databaseMaster', []);
+const filteredDatabase = inject<{ [key: string]: string | number }[]>('filteredDatabase', []);
 const searchWord = ref<string>('');
 
 watch(
@@ -12,7 +13,7 @@ watch(
     const reg = new RegExp(searchWord.value);
     filteredDatabase.value = [];
 
-    const filteredData = database.value.map((elements) => {
+    database.value.map((elements: Object) => {
       const dataRowValues = Object.values(elements);
       const filteredWords = dataRowValues.filter((text) => reg.test(text));
 

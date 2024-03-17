@@ -1,18 +1,23 @@
 <script lang="ts" setup>
 import { provide, inject, ref } from 'vue';
-import { type Sheet } from '~/types.d';
+import type { Sheet } from '~/types.d';
 
-const databaseValues: Sheet | undefined = inject('sheetData');
-const { values } = databaseValues.value;
+const defaultSheetData = {
+  range: 'ROWS',
+  majorDimension: '',
+  values: []
+}
+
+const databaseValues = inject<Sheet>('sheetData', defaultSheetData);
+const { values } = databaseValues;
 const headerKeys: string[] = values[0];
 
 const valuesWithKeys = () => {
   const outputData: string[] = [];
-  const { values } = databaseValues.value;
   const headerKeys: string[] = values[0];
 
   /**
-   * 1. 0番目の配列からオブジェクトの生成
+   * 1. 0番目の配列をもとにオブジェクトのキーを生成
    */
   const headerKeysObject = headerKeys.reduce((target: any, key: any) => {
     target[key] = null;
@@ -40,7 +45,7 @@ const valuesWithKeys = () => {
 };
 
 const databaseData = ref(valuesWithKeys());
-const filteredDatabaseData = ref([]);
+const filteredDatabaseData = ref<string[]>([]);
 
 provide('databaseMaster', databaseData);
 provide('filteredDatabase', filteredDatabaseData);
