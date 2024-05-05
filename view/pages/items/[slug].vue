@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const route = useRoute('data-slug');
+const route = useRoute();
 const { data } = await useFetch(`/api/wp/posts/items/${route.params.slug}`);
 </script>
 
