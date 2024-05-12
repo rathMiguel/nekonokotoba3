@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    preset: 'netlify-static',
+    preset: 'netlify-edge',
     prerender: {
       failOnError: false
     }
