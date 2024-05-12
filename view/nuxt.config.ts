@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    preset: 'netlify-static',
     prerender: {
       failOnError: false
     }
@@ -78,8 +79,8 @@ export default defineNuxtConfig({
     '@/plugins/fontawesome.ts'
   ],
   image: {
-    dir: 'public/images',
-    domains: [process.env.WP_BASE_URL]
+    dir: 'public',
+    domains: ['/', process.env.WP_BASE_URL]
   },
   experimental: {
     typedPages: true

@@ -25,7 +25,7 @@ watch(
     <div class="header-fixed" :class="isNavToggle ? 'is-active' : ''">
       <div class="header-logo">
         <NuxtLink to="/">
-          <NuxtImg src="/logo.svg" alt="猫のことば研究所" width="150" height="62" fit="contain" />
+          <NuxtImg src="/images/logo.svg" alt="猫のことば研究所" width="150" height="62" fit="contain" />
         </NuxtLink>
       </div>
       <TheNav />
