@@ -78,6 +78,7 @@ export default defineNuxtConfig({
     '@/plugins/fontawesome.ts'
   ],
   image: {
+    dir: 'public',
     domains: [process.env.WP_BASE_URL],
   },
   experimental: {
