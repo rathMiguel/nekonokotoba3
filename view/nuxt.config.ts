@@ -7,8 +7,9 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    compressPublicAssets: true,
     prerender: {
-      failOnError: false
+      failOnError: false,
     }
   },
   app: {
@@ -78,7 +79,7 @@ export default defineNuxtConfig({
   ],
   image: {
     dir: 'public',
-    domains: ['/', process.env.WP_BASE_URL]
+    domains: [process.env.WP_BASE_URL]
   },
   experimental: {
     typedPages: true
