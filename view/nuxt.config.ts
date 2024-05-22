@@ -9,7 +9,9 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     prerender: {
-      failOnError: false,
+      routes: [
+        '/_ipx/fit_contain&s_300x124/images/logo.svg'
+      ]
     }
   },
   app: {
