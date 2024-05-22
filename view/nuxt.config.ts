@@ -7,7 +7,11 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    preset: 'netlify',
     compressPublicAssets: true,
+    routeRules: {
+      '/events': { static : true }
+    },
     prerender: {
       routes: [
         '/_ipx/fit_contain&s_300x124/images/logo.svg'
