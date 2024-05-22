@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         '/_ipx/fit_contain&s_300x124/images/logo.svg',
+        '/_ipx/f_webp&q_70&fit_cover&s_600x600/images/top/screenBreidablik030.jpg',
         '/_ipx/f_webp&q_70&fit_cover&s_300x300/images/top/screenBreidablik030.jpg'
       ]
     }
@@ -85,7 +86,7 @@ export default defineNuxtConfig({
     '@/plugins/fontawesome.ts'
   ],
   image: {
-    dir: 'public',
+    // dir: 'public',
     domains: [process.env.WP_BASE_URL]
   },
   experimental: {
