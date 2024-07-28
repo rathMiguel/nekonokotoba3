@@ -83,7 +83,8 @@ export default defineNuxtConfig({
     ]
   },
   plugins: [
-    '@/plugins/fontawesome.ts'
+    '@/plugins/fontawesome.ts',
+    '@/plugins/fetch.ts'
   ],
   image: {
     // dir: 'public',
@@ -97,6 +98,10 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
+      fetch: {
+        retry: 3,
+        retryDelay: 1000,
+      },
       WP_BASE_URL: process.env.WP_BASE_URL,
       WP_API_URL: process.env.WP_API_URL,
       gtm: {
