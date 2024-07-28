@@ -7,18 +7,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    preset: 'netlify',
-    compressPublicAssets: true,
-    routeRules: {
-      '/events': { static : true }
-    },
-    prerender: {
-      routes: [
-        '/_ipx/fit_contain&s_300x124/images/logo.svg',
-        '/_ipx/f_webp&q_70&fit_cover&s_600x600/images/top/screenBreidablik030.jpg',
-        '/_ipx/f_webp&q_70&fit_cover&s_300x300/images/top/screenBreidablik030.jpg'
-      ]
-    }
+    compressPublicAssets: true
   },
   app: {
     head: {
@@ -87,7 +76,6 @@ export default defineNuxtConfig({
     '@/plugins/fetch.ts'
   ],
   image: {
-    // dir: 'public',
     domains: [process.env.WP_BASE_URL]
   },
   experimental: {
